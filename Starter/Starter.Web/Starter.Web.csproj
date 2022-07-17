@@ -23,6 +23,19 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="starter\angular.json" />
+    <None Include="starter\e2e\tsconfig.e2e.json" />
+    <None Include="starter\package-lock.json" />
+    <None Include="starter\package.json" />
+    <None Include="starter\src\tsconfig.app.json" />
+    <None Include="starter\src\tsconfig.server.json" />
+    <None Include="starter\src\tsconfig.spec.json" />
+    <None Include="starter\src\tslint.json" />
+    <None Include="starter\tsconfig.json" />
+    <None Include="starter\tslint.json" />
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
