@@ -12,14 +12,14 @@ namespace Starter.Web.Controllers
     [Route("api/[controller]")]
     public class BestController : Controller
     {
-
-
+       
+       
         [HttpGet("get")]
         public IActionResult Get()
         {
             var result = new Res("Hello World!");
             return Ok(result);
-
+           
         }
 
         public class Res
