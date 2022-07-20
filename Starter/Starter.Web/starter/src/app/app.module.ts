@@ -9,6 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AgencyTableComponent } from './free-agency/agency-table/agency-table.component';
+import { AgencyButtonComponent } from './free-agency/agency-button/agency-button.component';
+import { TournamentListComponent } from './tournament-info/tournament-list/tournament-list.component';
+import { TournamentButtonComponent } from './tournament-info/tournament-button/tournament-button.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { appRoutes } from './routes';
 
 @NgModule({
   declarations: [
@@ -16,9 +22,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    AgencyTableComponent,
+    AgencyButtonComponent,
+    TournamentListComponent,
+    TournamentButtonComponent,
+    MainLayoutComponent
   ],
+
+
   imports: [
+
+    RouterModule.forRoot(appRoutes),
+
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
@@ -29,7 +45,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [],
+
+  providers: [
+
+
+  ],
   bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }
