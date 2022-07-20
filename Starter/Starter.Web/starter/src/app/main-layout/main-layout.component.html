@@ -1,8 +1,21 @@
-<mat-toolbar>
-    <span>My Application</span>
-  </mat-toolbar>
+<mat-toolbar color="primary" class="topbar">
+    <mat-toolbar-row class="mat-elevation-z5">
+        <img class="m-r-10" src="assets/images/icons8-trophy-48.png">
+        <h4 class="logo-name">StarterApp</h4>
+        <button mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <button mat-icon-button ngxToggleFullscreen>
+            <mat-icon>fullscreen</mat-icon>
+        </button>
+
+
+    </mat-toolbar-row>
+</mat-toolbar>
 
   
 <h1>
     <app-agency-table></app-agency-table>
 </h1>
+
+<button mat-button color="primary">Primary</button>

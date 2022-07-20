@@ -20,6 +20,9 @@ import { appRoutes } from './routes';
 // feature Modules
 
 import { MaterialModule } from './material/material/material.module';
+import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,7 @@ import { MaterialModule } from './material/material/material.module';
     AgencyButtonComponent,
     TournamentListComponent,
     TournamentButtonComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
   ],
 
 
@@ -44,6 +47,8 @@ import { MaterialModule } from './material/material/material.module';
     HttpClientModule,
     FormsModule,
     MaterialModule,
+    NgxScreenfullModule,
+
     
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
