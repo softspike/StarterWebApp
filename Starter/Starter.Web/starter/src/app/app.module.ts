@@ -16,6 +16,11 @@ import { TournamentButtonComponent } from './tournament-info/tournament-button/t
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { appRoutes } from './routes';
 
+
+// feature Modules
+
+import { MaterialModule } from './material/material/material.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +43,8 @@ import { appRoutes } from './routes';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    MaterialModule,
+    
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
