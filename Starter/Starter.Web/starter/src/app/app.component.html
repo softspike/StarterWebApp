@@ -21,7 +21,7 @@
 
 
 <mat-sidenav-container class="example-sidenav-container ">
-    <mat-sidenav id="sidenav" #sidenav mode="side" opened>
+    <mat-sidenav id="sidenav" #sidenav mode="side" [mode]="mobileQuery.matches ? 'side' : 'over'" [opened]="mobileQuery.matches">
 <mat-list>
 
     <mat-list-item >

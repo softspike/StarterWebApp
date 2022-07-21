@@ -43,18 +43,18 @@
       background-color: blanchedalmond;
     }
     
-    // a {
-    //   height: 35px;
-    //   padding: 0 10px;
-    //   align-items: center;
-    //   display: flex;
-    // }
+    a {
+      height: 35px;
+      padding: 0 10px;
+      align-items: center;
+      display: flex;
+    }
     
-    // &.selected .mat-list-item-content a.selected {
-    //   background: transparent;
-    //   color:greenyellow;
-    //   font-weight: 500;
-    // }
+    &.selected .mat-list-item-content a.selected {
+      background: transparent;
+      color:greenyellow;
+      font-weight: 500;
+    }
     
     
     }
@@ -62,12 +62,11 @@
     @media (max-width: 768px){
         .sidenav {
           display: none;
+          flex: 0 1 auto;
         }
     }
 
     #sidenav{
         width: 210px;
-        background-color: rgb(184, 88, 88);
+        background-color: #fff;
       }
-
-      
