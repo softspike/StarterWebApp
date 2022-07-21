@@ -4,16 +4,15 @@ import { TournamentListComponent } from "./tournament-info/tournament-list/tourn
 
 export const appRoutes: Routes = [
 
-    { path: 'agency/table', component: AgencyTableComponent,data: { breadcrumb: 'Dashboard > Free Agency Table'},},
+
+   // {path: '**', component: TournamentListComponent},
+
+    { path: 'tournament/list', component: TournamentListComponent, data: { title: 'StarterApp | All Tournaments', breadcrumb: 'Dashboard > All Tournaments' },},
+
+    { path: 'agency/table', component: AgencyTableComponent, data: { title: 'StarterApp | Free Agency', breadcrumb: 'Dashboard > Free Agency' },},
 
    // { path: 'tournament/list', component: TournamentListComponent },
 
-
-    { path: 'tournament/list', component: TournamentListComponent, data: {breadcrumb: 'Dashboard > All Tournaments'},},
-
-
     // { path: '', redirectTo: 'tournament/list', pathMatch: 'full' },
-
-
 
 ]
