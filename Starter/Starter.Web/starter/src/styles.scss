@@ -3,12 +3,18 @@
 @import '/assets/styles/grid';
 
 
+
+
+
 html .page-wrapper {
     height: calc(100vh - 64px);
+
     .page-content {
       padding: 15px;
     }
   }
+
+
 
   img, h4 {
   cursor: pointer;

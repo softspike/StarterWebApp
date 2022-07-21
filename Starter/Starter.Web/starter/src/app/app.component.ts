@@ -1,3 +1,4 @@
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -14,13 +15,15 @@ export class AppComponent implements OnInit {
 constructor(
             private titleService: Title,
             private router: Router,
-            private activePage: ActivatedRoute){
-
+            private activePage: ActivatedRoute,
+            private media : MediaMatcher
+            ){
+            this.mobileQuery = media.matchMedia('(min-width: 768px)');
 }
 
   ngOnInit() {
     this.changeTitle();
-
+    console.log(this.mobileQuery.matches)
   }
 
 //https://www.youtube.com/watch?v=8iWAChl3rCQ
