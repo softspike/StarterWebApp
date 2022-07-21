@@ -1,0 +1,20 @@
+mat-toolbar {
+    background-color: rgb(255, 255, 255);
+    margin: -5px 0px 15px 0px;
+    overflow: hidden;
+    height: 30px;
+}
+
+#breadcrumb {
+    font-size: 16px;
+    background-color: none;
+}
+
+.bread-crumbs {
+    margin: 25px;
+}
+
+.breadcrumb-item.active {
+    color: black;
+}
+

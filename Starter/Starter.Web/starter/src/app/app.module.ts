@@ -22,6 +22,7 @@ import { appRoutes } from './routes';
 import { MaterialModule } from './material/material/material.module';
 import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
 import { BreadcrumbModule } from 'angular-crumbs';
+import { BreadCrumbsComponent } from './common/bread-crumbs/bread-crumbs.component';
 
 
 
@@ -38,6 +39,7 @@ import { BreadcrumbModule } from 'angular-crumbs';
     TournamentListComponent,
     TournamentButtonComponent,
     MainLayoutComponent,
+    BreadCrumbsComponent,
 
 
   ],

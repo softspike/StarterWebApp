@@ -4,7 +4,7 @@ import { TournamentListComponent } from "./tournament-info/tournament-list/tourn
 
 export const appRoutes: Routes = [
 
-    { path: 'agency/table', component: AgencyTableComponent },
+    { path: 'agency/table', component: AgencyTableComponent,data: { breadcrumb: 'Dashboard > Free Agency Table'},},
 
    // { path: 'tournament/list', component: TournamentListComponent },
 
