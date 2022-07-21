@@ -21,6 +21,8 @@ import { appRoutes } from './routes';
 
 import { MaterialModule } from './material/material/material.module';
 import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
+import { BreadcrumbModule } from 'angular-crumbs';
+
 
 
 
@@ -36,12 +38,16 @@ import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
     TournamentListComponent,
     TournamentButtonComponent,
     MainLayoutComponent,
+
+
   ],
 
 
   imports: [
 
     RouterModule.forRoot(appRoutes),
+    BreadcrumbModule,
+   
 
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -49,11 +55,14 @@ import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
     MaterialModule,
     NgxScreenfullModule,
 
+
     
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      
+      
     ]),
     BrowserAnimationsModule
   ],

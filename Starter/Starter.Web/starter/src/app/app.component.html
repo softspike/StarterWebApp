@@ -1,3 +1,62 @@
-<body>
-    <router-outlet></router-outlet>
-</body>
+<mat-toolbar color="primary" class="topbar">
+    <mat-toolbar-row class="mat-elevation-z5">
+        <img class="m-r-10" src="assets/images/icons8-trophy-48.png" [routerLink]="['tournament/list']">
+        <h4 id="logo-name" [routerLink]="['tournament/list']">StarterApp</h4>
+        
+        <button mat-icon-button (click)="sidenav.toggle()" >
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <button mat-icon-button ngxToggleFullscreen>
+            <mat-icon>fullscreen</mat-icon>
+        </button>
+        <div class="spacer"></div>
+        <div>
+            <button mat-icon-button>
+                <mat-icon>account_circle</mat-icon>
+            </button>
+        </div> 
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="example-sidenav-container ">
+    <mat-sidenav id="sidenav" #sidenav mode="side" opened>
+<mat-list>
+
+    <mat-list-item >
+        <mat-icon>home</mat-icon>
+        <a class="m-l-10" [routerLink]="['tournament/list']" style="text-decoration: none;" routerLinkActive="selected">All Tournaments</a>
+      </mat-list-item>
+
+    <mat-list-item >
+        <mat-icon>table_chart</mat-icon>
+        <a class="m-l-10" [routerLink]="['agency/table']" routerLinkActive="selected">Free Agency</a>
+    </mat-list-item>
+
+</mat-list>
+    </mat-sidenav>
+<mat-sidenav-content class="page-wrapper">
+    <div class="page-content">
+
+        <router-outlet></router-outlet>
+    </div>
+    
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
