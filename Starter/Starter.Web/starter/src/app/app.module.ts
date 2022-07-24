@@ -23,6 +23,8 @@ import { MaterialModule } from './material/material/material.module';
 import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
 import { BreadcrumbModule } from 'angular-crumbs';
 import { BreadCrumbsComponent } from './common/bread-crumbs/bread-crumbs.component';
+import { CaptainPageComponent } from './user-types/captain-page/captain-page.component';
+import { PlayerPageComponent } from './user-types/player-page/player-page.component';
 
 
 
@@ -40,6 +42,8 @@ import { BreadCrumbsComponent } from './common/bread-crumbs/bread-crumbs.compone
     TournamentButtonComponent,
     MainLayoutComponent,
     BreadCrumbsComponent,
+    CaptainPageComponent,
+    PlayerPageComponent,
 
 
   ],
