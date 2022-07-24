@@ -25,6 +25,7 @@ import { BreadcrumbModule } from 'angular-crumbs';
 import { BreadCrumbsComponent } from './common/bread-crumbs/bread-crumbs.component';
 import { CaptainPageComponent } from './user-types/captain-page/captain-page.component';
 import { PlayerPageComponent } from './user-types/player-page/player-page.component';
+import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 
 
 
@@ -44,6 +45,7 @@ import { PlayerPageComponent } from './user-types/player-page/player-page.compon
     BreadCrumbsComponent,
     CaptainPageComponent,
     PlayerPageComponent,
+    PageNotFoundComponent,
 
 
   ],

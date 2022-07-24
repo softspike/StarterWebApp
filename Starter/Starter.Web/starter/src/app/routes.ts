@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { AgencyTableComponent } from "./free-agency/agency-table/agency-table.component";
 import { HomeComponent } from './home/home.component';
 import { TournamentListComponent } from "./tournament-info/tournament-list/tournament-list.component";
@@ -19,5 +20,7 @@ export const appRoutes: Routes = [
     { path: 'user-types/captain-page', component: CaptainPageComponent, data: { title: 'StarterApp | Captain', breadcrumb: 'Dashboard > Captain Page' },},
 
     { path: 'user-types/player-page', component: PlayerPageComponent, data: { title: 'StarterApp | Player', breadcrumb: 'Dashboard > Player Page' },},
+
+    { path: '**', component: PageNotFoundComponent },
 
 ]
