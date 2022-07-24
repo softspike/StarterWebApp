@@ -7,6 +7,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatExpansionModule,
     MatCardModule,
+    MatFormFieldModule,
 
   ],
 
@@ -31,6 +33,7 @@ import { MatCardModule } from '@angular/material/card';
     MatListModule,
     MatExpansionModule,
     MatCardModule,
+    MatFormFieldModule,
   ],
 
   providers:
