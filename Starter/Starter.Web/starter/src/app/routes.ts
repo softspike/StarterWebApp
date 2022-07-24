@@ -21,6 +21,6 @@ export const appRoutes: Routes = [
 
     { path: 'user-types/player-page', component: PlayerPageComponent, data: { title: 'StarterApp | Player', breadcrumb: 'Dashboard > Player Page' },},
 
-    { path: '**', component: PageNotFoundComponent },
+    { path: '**', component: PageNotFoundComponent, data: { title: 'StarterApp | 404' }, },
 
 ]

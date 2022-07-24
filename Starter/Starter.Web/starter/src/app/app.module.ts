@@ -26,6 +26,7 @@ import { BreadCrumbsComponent } from './common/bread-crumbs/bread-crumbs.compone
 import { CaptainPageComponent } from './user-types/captain-page/captain-page.component';
 import { PlayerPageComponent } from './user-types/player-page/player-page.component';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -55,6 +56,7 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 
     RouterModule.forRoot(appRoutes),
     BreadcrumbModule,
+    FlexLayoutModule,
    
 
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

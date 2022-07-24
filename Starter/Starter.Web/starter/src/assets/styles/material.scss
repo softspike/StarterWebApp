@@ -1,0 +1,41 @@
+.warning-mini-fab.mat-micro {
+    background: orange !important;
+  }
+
+  .mat-micro, .mat-micro-no-hide {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+  
+    .mat-button-wrapper
+    {
+      padding: 0 !important;
+    }
+  
+    .mat-icon, .mat-icon-button i {
+      line-height: 20px;
+    }
+  
+    .mat-icon {
+      width: 20px;
+      height: 20px;
+      margin: 0;
+    }
+  
+    .material-icons {
+      font-size: 20px;
+    }
+  }
+
+  .mat-micro.mat-nano {
+    width: 25px !important;
+    height: 25px !important;
+    line-height: 25px !important;
+}
+
+// .mat-micro.mat-16px {
+//   width: 16px !important;
+//   height: 16px !important;
+//   line-height: 16px !important;
+//   font-size: 16px !important;
+// }
