@@ -1,0 +1,4 @@
+{
+    "gitlens.advanced.caching.enabled": true,
+    "git.enabled": true
+}

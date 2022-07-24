@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="topbar">
     <mat-toolbar-row class="mat-elevation-z5">
-        <img class="m-r-10" src="assets/images/icons8-trophy-48.png" [routerLink]="['tournament/list']">
-        <h4 id="logo-name" [routerLink]="['tournament/list']">StarterApp</h4>
+        <img class="m-r-10" src="assets/images/icons8-trophy-48.png" [routerLink]="['/home']">
+        <h4 id="logo-name" [routerLink]="['/home']">StarterApp</h4>
         
         <button mat-icon-button (click)="sidenav.toggle()" >
             <mat-icon>menu</mat-icon>
@@ -20,18 +20,33 @@
 </mat-toolbar>
 
 
-<mat-sidenav-container class="example-sidenav-container ">
+<mat-sidenav-container>
     <mat-sidenav id="sidenav" #sidenav mode="side" [mode]="mobileQuery.matches ? 'side' : 'over'" [opened]="mobileQuery.matches">
 <mat-list>
 
     <mat-list-item >
         <mat-icon>home</mat-icon>
+        <a class="m-l-10" [routerLink]="['home']" style="text-decoration: none;" routerLinkActive="selected">Home</a>
+    </mat-list-item>
+
+    <mat-list-item >
+        <mat-icon>toc</mat-icon>
         <a class="m-l-10" [routerLink]="['tournament/list']" style="text-decoration: none;" routerLinkActive="selected">All Tournaments</a>
-      </mat-list-item>
+    </mat-list-item>
 
     <mat-list-item >
         <mat-icon>table_chart</mat-icon>
         <a class="m-l-10" [routerLink]="['agency/table']" routerLinkActive="selected">Free Agency</a>
+    </mat-list-item>
+
+    <mat-list-item >
+        <mat-icon>perm_identity</mat-icon>
+        <a class="m-l-10" [routerLink]="['agency/table']" routerLinkActive="selected">Captain's Page</a>
+    </mat-list-item>
+
+    <mat-list-item >
+        <mat-icon>how_to_reg</mat-icon>
+        <a class="m-l-10" [routerLink]="['agency/table']" routerLinkActive="selected">Player's Page</a>
     </mat-list-item>
 
 </mat-list>
