@@ -27,6 +27,7 @@ import { CaptainPageComponent } from './user-types/captain-page/captain-page.com
 import { PlayerPageComponent } from './user-types/player-page/player-page.component';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SetScrollDirective } from './directives/set-scroll.directive';
 
 
 
@@ -47,6 +48,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CaptainPageComponent,
     PlayerPageComponent,
     PageNotFoundComponent,
+    SetScrollDirective,
 
 
   ],

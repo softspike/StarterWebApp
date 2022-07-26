@@ -9,6 +9,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatFormFieldModule,
     MatPaginatorModule,
+    MatDialogModule,
+    MatTableModule,
     
   ],
 
@@ -37,7 +41,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    
+    MatDialogModule,
+    MatTableModule,
+
   ],
 
   providers:
