@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttpHelperService } from './http-helper.service';
+import { FreeAgencyService } from './free-agency.service';
 
-describe('HttpHelperService', () => {
+describe('FreeAgencyService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HttpHelperService = TestBed.get(HttpHelperService);
+    const service: FreeAgencyService = TestBed.get(FreeAgencyService);
     expect(service).toBeTruthy();
   });
 });

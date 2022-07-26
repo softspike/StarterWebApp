@@ -1,76 +1,9 @@
 <mat-card>
-    <div fxLayout="row"> 
-        <mat-form-field fxFlex>
-            <input matInput [(ngModel)]="request.searchText" (keyup.enter)="getList()" placeholder="Name & Code PORTS">
-            <mat-icon (click)="clearSearch()" matSuffix>clear</mat-icon>
-            <mat-icon (click)="search()" matPrefix>search</mat-icon>
-        </mat-form-field>
-        <div class="p-t-5 m-l-10">
-            <button class="mat-micro" color="primary" mat-mini-fab>
-                <mat-icon>cloud_download</mat-icon>
-            </button>
-         </div> 
-         <div class="m-l-10">  
-            <button color="primary" (click)="add()" mat-mini-fab>
-                <mat-icon>add_circle</mat-icon>
-            </button>
-        </div>
-    </div>
-    
-    <!-- <core-page-size (pageSize)="setPageSize($event)"></core-page-size> -->
-    <!-- <div class="scroll-area" set-scroll [offsetHeight]="40"></div> -->
-    <div class="scroll-area" set-scroll>
-        <mat-table matSort class="mat-elevation-z8" [dataSource]="response.data">
-                <ng-container matColumnDef="buttons">
-                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                        <mat-cell *matCellDef="let row">
-                            <button color="warn" (click)="edit(row)" mat-mini-fab>
-                                <mat-icon>touch_app</mat-icon>
-                              </button>
-                        </mat-cell>
-                </ng-container>
-    
-                <ng-container matColumnDef="country">
-                    <mat-header-cell mat-sort-header *matHeaderCellDef>Country</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.country}}</mat-cell>
-                  </ng-container>
-    
-                  <ng-container matColumnDef="name">
-                    <mat-header-cell mat-sort-header *matHeaderCellDef>Name</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
-                  </ng-container>
-    
-                  <ng-container matColumnDef="code">
-                    <mat-header-cell mat-sort-header *matHeaderCellDef>Code</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.code}}</mat-cell>
-                  </ng-container>
-    
-                  <ng-container matColumnDef="long">
-                    <mat-header-cell mat-sort-header *matHeaderCellDef>Long</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.long}}</mat-cell>
-                  </ng-container>
-    
-                  <ng-container matColumnDef="lat">
-                    <mat-header-cell mat-sort-header *matHeaderCellDef>Lat</mat-header-cell>
-                    <mat-cell *matCellDef="let row">{{row.lat}}</mat-cell>
-                  </ng-container>
-    
-                  <ng-container matColumnDef="type">
-                    <mat-header-cell mat-sort-header *matHeaderCellDef>Type</mat-header-cell>
-                    <mat-cell *matCellDef="let row">
-                      <span *ngIf="row.isSea">Sea</span>
-                      <span *ngIf="row.isAir && row.isSea"> / </span>
-                      <span *ngIf="row.isAir">Air</span>
-                    </mat-cell>
-                  </ng-container>
-    
-                  <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-                  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-        </mat-table>
-    
-    
-        <mat-paginator class="mat-elevation-z8" [length]="response?.totalRecords" [pageSize]="request?.pageSize"
-                       [pageSizeOptions]="pageSizeOptions"></mat-paginator>
-    
-    </div>
-    </mat-card> 
+  <div>
+
+
+
+
+  </div>
+
+</mat-card>
