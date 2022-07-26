@@ -8,6 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatExpansionModule,
     MatCardModule,
     MatFormFieldModule,
-
+    MatPaginatorModule,
+    
   ],
 
   exports: [
@@ -34,6 +36,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatExpansionModule,
     MatCardModule,
     MatFormFieldModule,
+    MatPaginatorModule,
+    
   ],
 
   providers:
