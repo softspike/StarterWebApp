@@ -63,14 +63,21 @@ html .page-wrapper {
   // }
   
   
+  mat-card {
+    margin: 10px;
+  }
   
   
   
   
+  .scroll-area{
+    overflow-x: hidden !important;
+  }
   
-  
-  
-  
+  .leaflet-div-icon {
+    background: none !important;
+    border: none !important;
+  }
   
   
   
