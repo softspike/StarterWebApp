@@ -28,6 +28,7 @@ import { PlayerPageComponent } from './user-types/player-page/player-page.compon
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SetScrollDirective } from './directives/set-scroll.directive';
+import { BlockTemplateComponent } from './block-template.component';
 
 
 
@@ -49,6 +50,7 @@ import { SetScrollDirective } from './directives/set-scroll.directive';
     PlayerPageComponent,
     PageNotFoundComponent,
     SetScrollDirective,
+    BlockTemplateComponent,
 
 
   ],
