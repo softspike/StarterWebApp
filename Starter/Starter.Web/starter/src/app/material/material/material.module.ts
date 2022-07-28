@@ -11,9 +11,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
-
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -35,6 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatIconModule,
     MatInputModule,
     MatSortModule,
+    MatSnackBarModule,
     
     
   ],
@@ -51,9 +52,10 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatDialogModule,
     MatTableModule,
-   
     MatInputModule,
     MatSortModule,
+    MatSnackBarModule,
+    
   ],
 
   providers:
