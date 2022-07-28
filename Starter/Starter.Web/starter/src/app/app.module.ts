@@ -56,7 +56,7 @@ import { SetScrollDirective } from './directives/set-scroll.directive';
 
   imports: [
 
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     BreadcrumbModule,
     FlexLayoutModule,
    
@@ -70,12 +70,10 @@ import { SetScrollDirective } from './directives/set-scroll.directive';
 
     
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      
-      
-    ]),
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'counter', component: CounterComponent },
+    { path: 'fetch-data', component: FetchDataComponent },
+], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule
   ],
 
