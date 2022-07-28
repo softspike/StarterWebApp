@@ -8,12 +8,14 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 export class AgencyButtonComponent implements OnInit, AfterViewInit {
 
   constructor() { }
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
   ngOnInit() {
     
+  }
+
+  ngAfterViewInit(): void {
+    throw new Error('Method not implemented.');
   }
 
 }
