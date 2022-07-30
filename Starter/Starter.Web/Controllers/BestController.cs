@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Starter.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Starter.Web.Controllers
         [HttpGet("get")]
         public IActionResult Get()
         {
+            var Message = new LinkAgencyService();
             var result = new Res("Hello World!");
             return Ok(result);
            
