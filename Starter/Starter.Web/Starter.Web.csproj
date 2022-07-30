@@ -41,6 +41,11 @@
     <PackageReference Include="DynamicData" Version="7.9.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Starter.Core\Starter.Core.csproj" />
+    <ProjectReference Include="..\Starter.Data\Starter.Data.csproj" />
+  </ItemGroup>
+
  
 
 </Project>
