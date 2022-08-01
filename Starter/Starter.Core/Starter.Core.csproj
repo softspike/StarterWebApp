@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="NPOI" Version="2.5.6" />
+    <PackageReference Include="Npoi.Mapper" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Starter.Data\Starter.Data.csproj" />
   </ItemGroup>
 

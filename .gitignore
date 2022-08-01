@@ -4,3 +4,5 @@ Starter/.vs/Starter/v16/.suo
 *.v2
 
 .vs/
+
+Starter/Starter.Web/starter/src/app/appStructure.txt

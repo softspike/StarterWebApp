@@ -240,3 +240,80 @@ html .page-wrapper {
     justify-content: center;
     text-align: center;
   }
+
+  // start mapping.scss
+
+  .pop-container {
+    width: 200px;
+    table{
+        width: 100%;
+    }
+  }
+  
+  .marker-cluster {
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: #FFF;
+    opacity: 0.9;
+    width: 40px;
+    height: 40px;
+    border: none;
+    padding-top: 1px;
+  }
+  
+  .marker-cluster div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 15px;
+    font-weight: 600;
+    opacity: 1;
+  }
+  
+  .marker-cluster span {
+    line-height: 30px;
+    font-size: 15px;
+    color: #FFF;
+  }
+  
+  .marker-cluster .marker-blue {
+    background-color: #2B82CB;
+  }
+  
+  .marker-cluster .marker-green {
+    background-color: #27AE24;
+  }
+  
+  .marker-cluster .marker-red {
+    background-color: #CB293C;
+  }
+  
+  .marker-cluster .marker-violet {
+    background-color: #9A25CB;
+  }
+  
+  .marker-cluster .marker-yellow {
+    background-color: #CBC529;
+  }
+  
+  .marker-cluster .marker-orange {
+    background-color: orange;
+  }
+  
+  .leaflet-div-icon {
+    background: none !important;
+    border: none !important;
+  }
+//end mapping scss  
+
+
+//forms start
+.simple-form mat-form-field
+{
+  margin-top: 10px;
+}
+
+//forms end
+

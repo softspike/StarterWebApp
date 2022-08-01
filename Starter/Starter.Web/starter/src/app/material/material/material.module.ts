@@ -14,7 +14,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatSortModule,
     MatSnackBarModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
     
     
   ],
@@ -55,6 +58,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatInputModule,
     MatSortModule,
     MatSnackBarModule,
+    MatAutocompleteModule,
+    MatCheckboxModule,
     
   ],
 
