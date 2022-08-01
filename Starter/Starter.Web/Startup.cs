@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Starter.Core.Mapping;
+using Starter.Core.Services;
+using Starter.Services;
 
 namespace Starter.Web
 {
@@ -12,6 +15,9 @@ namespace Starter.Web
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            var mapSetUp = new AutoMapSetup();
+            mapSetUp.Setup();
         }
 
         public IConfiguration Configuration { get; }
@@ -30,6 +36,8 @@ namespace Starter.Web
                 .WithOrigins("http://localhost:4200");
 
             }));
+
+            InjectionServices(services);
 
             // In production, the Angular files will be served from this directory
             //services.AddSpaStaticFiles(configuration =>
@@ -71,6 +79,8 @@ namespace Starter.Web
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
 
+         
+
             //app.UseSpa(spa =>
             //{
             //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
@@ -83,6 +93,13 @@ namespace Starter.Web
             //        spa.UseAngularCliServer(npmScript: "start");
             //    }
             //});
+        }
+
+
+        private void InjectionServices(IServiceCollection services)
+        {
+            services.AddScoped<IFreeAgencyManagementService, FreeAgencyManagementService>();
+            services.AddScoped<IExcelConvertService, ExcelConvertService>();
         }
     }
 }

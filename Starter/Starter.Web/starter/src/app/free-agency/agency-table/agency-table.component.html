@@ -1,5 +1,5 @@
 <mat-card>
-    <div fxLayout="row" > 
+    <!-- <div fxLayout="row" > 
         <mat-form-field fxFlex>
             <input matInput [(ngModel)]="request.searchText" (keyup.enter)="getList()" placeholder="Name & Code PORTS">
             <mat-icon (click)="clearSearch()" matSuffix>clear</mat-icon>
@@ -17,12 +17,12 @@
                 <mat-icon>add_circle</mat-icon>
             </button>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- <core-page-size (pageSize)="setPageSize($event)"></core-page-size> -->
     <div class="scroll-area" set-scroll [offsetHeight]="40">
-        <mat-table matSort class="mat-elevation-z8" [dataSource]="response.data">
+        <mat-table matSort class="mat-elevation-z8" [dataSource]="response">
           <ng-container matColumnDef="buttons">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">

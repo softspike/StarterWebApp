@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AgencyResponse } from '../models/agency-response.model';
 import { PageRequest, PageResponse } from '../models/table.models';
 import { HttpHelperService } from './http-helper.service';
 
@@ -10,7 +11,7 @@ import { HttpHelperService } from './http-helper.service';
 export class FreeAgencyService {
 
 
-  private apiUrl = 'api/agencymanagement';
+  private apiUrl = 'api/FreeAgency';
   constructor(private http: HttpClient) { }
 
   get(id: number): Observable<any> {
@@ -18,29 +19,28 @@ export class FreeAgencyService {
     return this.http.get<any>(url);
   }
 
-  list(request: PageRequest): Observable<PageResponse<any>> {
-    const parameters = HttpHelperService.objectToQueryString(request);
-    const url = `${this.apiUrl}/list/${parameters}`;
-    return this.http.get<PageResponse<any>>(url);
+  list(): Observable<any> {
+    const url = `${this.apiUrl}/list`;
+    return this.http.get<any>(url);
   }
 
-  upsert(request: any): Observable<any> {
-    if (request.id) {
-      return this.update(request);
-    }
+  // upsert(request: any): Observable<any> {
+  //   if (request.id) {
+  //     return this.update(request);
+  //   }
 
-    return this.add(request);
-  }
+  //   return this.add(request);
+  // }
 
-  private add(request: any): Observable<any> {
-    const url = `${this.apiUrl}/add`;
-    return this.http.post<any>(url, request);
-  }
+  // // private add(request: any): Observable<any> {
+  // //   const url = `${this.apiUrl}/add`;
+  //   return this.http.post<any>(url, request);
+  // }
 
-  private update(request: any): Observable<any> {
-    const url = `${this.apiUrl}/update`;
-    return this.http.post<any>(url, request);
-  }
+  // private update(request: any): Observable<any> {
+  //   const url = `${this.apiUrl}/update`;
+  //   return this.http.post<any>(url, request);
+  // }
 
   // getPod() {
   //   const url = `${this.apiUrl}/pod`;

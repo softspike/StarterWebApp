@@ -1,36 +1,68 @@
-﻿//using DynamicData;
-//using Microsoft.AspNetCore.Authorization;
-//using Microsoft.AspNetCore.Mvc;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using Starter.Data;
+using Starter.Core;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Starter.Data.Models;
+using Starter.Core.Services;
+using Starter.Services;
+using System.IO;
+
+namespace Starter.Web.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class FreeAgencyController : Controller
+    {
+        private readonly IFreeAgencyManagementService _freeAgencyManagementService;
+
+        private readonly IExcelConvertService _excelConvertService;
 
 
-//namespace Starter.Web.Api.Static
-//{
-//    [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-//    [Route("api/[controller]")]
-//    public class FreeAgencyManagementController : ControllerBase
-//    {
+        public FreeAgencyController(IFreeAgencyManagementService freeAgencyManagementService,
+            IExcelConvertService excelConvertService)
+        {
+            _freeAgencyManagementService = freeAgencyManagementService;
+            _excelConvertService = excelConvertService;
+        }
 
-//        private readonly IFreeAgencyService _freeAgencyService;
+        [HttpGet("get")]
+        public async Task<FreeAgency> Get(int id)
+        {
+            var res = await _freeAgencyManagementService.Get(id);
+            return res;
+        }
 
-//        private readonly IExcelConvertService _converter;
+        [HttpGet("list")]
+        public async Task<List<FreeAgency>> GetList()
+        {
+            var res = await _freeAgencyManagementService.GetList();
+            return res;
+        }
 
-//        public FreeAgencyManagementController(IFreeAgencyService freeAgencyService,
-//                                   IExcelConvertService converter
-//                                // IUserSessionService userSessionService,
-//                                //   EdgeDataContext context,
-//                                //   IColourService colourService
-//                                )
+        [HttpGet("export")]
+        
+        public async Task<IActionResult> Export()
+        {
+            var list = await GetList();
+            var stream = _excelConvertService.GetExcelNoFormat(list, "EWL Export");
+            var res = ((MemoryStream)stream).ToArray();
+            return File(res, "application/octet-stream", $"Export-{DateTime.UtcNow:ddMMyyyy}.xlsx");
+        }
 
-//            _freeAgencyService = freeAgencyService;
-//         //   _converter = converter;
-//         ///   _userSessionService = userSessionService;
-//        //    _context = context;
-//        //    _colourService = colourService;
-//    }
+        //var d = await _provider.GetData(_customerCode, cr);
+        //_provider = null;
+        //        SetSumOfPo(d);
+        //var stream = _excelConvertService.GetExcelNoFormat(d, "EWL Export");
+        //d.ClearList();
+        //        var res = ((MemoryStream)stream).ToArray();
+        //stream = null;
+        //        return res;
+    }
+}
+
 
 //    [HttpGet("get")]
 //    public async Task<PortResponse> Get(int id)

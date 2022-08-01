@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -29,6 +29,7 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SetScrollDirective } from './directives/set-scroll.directive';
 import { BlockTemplateComponent } from './block-template.component';
+import { ClosePopupComponent } from './common/close-popup/close-popup.component';
 
 
 
@@ -51,6 +52,7 @@ import { BlockTemplateComponent } from './block-template.component';
     PageNotFoundComponent,
     SetScrollDirective,
     BlockTemplateComponent,
+    ClosePopupComponent,
 
 
   ],
@@ -68,7 +70,9 @@ import { BlockTemplateComponent } from './block-template.component';
     FormsModule,
     MaterialModule,
     NgxScreenfullModule,
-
+    ReactiveFormsModule,
+ 
+ 
 
     
     RouterModule.forRoot([
