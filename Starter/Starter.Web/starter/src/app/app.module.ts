@@ -30,6 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SetScrollDirective } from './directives/set-scroll.directive';
 import { BlockTemplateComponent } from './block-template.component';
 import { ClosePopupComponent } from './common/close-popup/close-popup.component';
+import { ExcelExportComponent } from './common/excel-export/excel-export.component';
+
 
 
 
@@ -53,6 +55,7 @@ import { ClosePopupComponent } from './common/close-popup/close-popup.component'
     SetScrollDirective,
     BlockTemplateComponent,
     ClosePopupComponent,
+    ExcelExportComponent,
 
 
   ],
