@@ -18,62 +18,21 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
 response: any[] = [];
   searchText = "";
   displayedColumns = ['buttons', 'country', 'name', 'code', 'long', 'lat','type'];
-  // request = new PageRequest();
-  // response = new PageResponse<any>();
-  // pageSizeOptions = [25, 50];
-  // private searchUpdated = new Subject();
   private alive = true;
-
-
-  // @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  // @ViewChild(MatSort, { static: true }) sort: MatSort;
 
 
   constructor( private freeAgencyService: FreeAgencyService,
                private throbberService: ThrobberService,
                public dialog: MatDialog) { 
                }
-  //   this.searchUpdated.pipe(
-  //     debounceTime(1000))
-  //     .subscribe(() => {
-  //       this.request.pageNumber = 0;
-  //      this.getList();
-  //     });
-  // }
 
-  // ngAfterViewInit() {
-  //   this.paginator.page
-  //     .pipe(
-  //       tap(() => {
-  //         this.request.setPageSize(this.paginator);
-  //         this.getList();
-  //       })
-  //     )
-  //     .subscribe();
-
-  //   this.sort.sortChange
-  //     .pipe(
-  //       tap(() => {
-  //         this.paginator.pageIndex = 0;
-  //         this.request.setSort(this.sort);
-  //         this.getList();
-  //       })
-  //     )
-  //     .subscribe();
-  // }
-
-  // setPageSize(size: number) {
-  //   this.pageSizeOptions = [size, 25, 50];
-  //   this.request.pageSize = size;
-  //   this.getList();
-  // } 
 
   ngOnInit(){
-this.getList();
+    this.getList();
   }
 
   getList() {
-    //this.throbberService.block();
+    this.throbberService.block();
     this.freeAgencyService.list()
       .pipe(takeWhile(() => this.alive),
         finalize(() => { this.throbberService.unblock(); }))

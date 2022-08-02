@@ -1,24 +1,26 @@
 <mat-card>
-    <!-- <div fxLayout="row" > 
+    <div fxLayout="row" > 
         <mat-form-field fxFlex>
-            <input matInput [(ngModel)]="request.searchText" (keyup.enter)="getList()" placeholder="Name & Code PORTS">
+          <!-- <input matInput [(ngModel)]="request.searchText" (keyup.enter)="getList()" placeholder="Name & Code PORTS"> -->
+            <input matInput placeholder="Name & Code PORTS">
             <mat-icon (click)="clearSearch()" matSuffix>clear</mat-icon>
             <mat-icon (click)="search()" matPrefix>search</mat-icon>
         </mat-form-field>
         
-        <div class="p-t-5 m-l-10">
-            <button class="mat-micro" color="primary" mat-mini-fab>
-                <mat-icon>cloud_download</mat-icon>
-            </button>
-         </div> 
+         <div class="p-t-5 m-l-10">
+          <shared-excel-export [request]="request" type="xlsx" [api-url]="'api/FreeAgency/export'">
+          <button class="mat-micro" color="primary" mat-mini-fab>
+            <mat-icon>cloud_download</mat-icon>
+          </button>
+        </shared-excel-export>
+       </div>
 
          <div class="m-l-10">  
             <button color="primary" (click)="add()" mat-mini-fab>
                 <mat-icon>add_circle</mat-icon>
             </button>
         </div>
-    </div> -->
-
+    </div>
 
     <!-- <core-page-size (pageSize)="setPageSize($event)"></core-page-size> -->
     <div class="scroll-area" set-scroll [offsetHeight]="40">
@@ -66,8 +68,6 @@
               <span *ngIf="row.isAir">Air</span>
             </mat-cell>
           </ng-container>
-
-
 
           <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
