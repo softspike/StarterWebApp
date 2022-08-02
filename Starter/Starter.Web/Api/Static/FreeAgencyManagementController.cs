@@ -42,14 +42,14 @@ namespace Starter.Web.Controllers
             return res;
         }
 
-        [HttpGet("export")]
+        [HttpPost("export")]
         
         public async Task<IActionResult> Export()
         {
             var list = await GetList();
-            var stream = _excelConvertService.GetExcelNoFormat(list, "EWL Export");
+            var stream = _excelConvertService.GetExcelNoFormat(list, "Starter Export");
             var res = ((MemoryStream)stream).ToArray();
-            return File(res, "application/octet-stream", $"Export-{DateTime.UtcNow:ddMMyyyy}.xlsx");
+            return File(res, "application/octet-stream", $"Starter.xlsx");
         }
 
         //var d = await _provider.GetData(_customerCode, cr);
