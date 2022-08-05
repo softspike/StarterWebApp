@@ -6,3 +6,5 @@ Starter/.vs/Starter/v16/.suo
 .vs/
 
 Starter/Starter.Web/starter/src/app/appStructure.txt
+
+*.cache
