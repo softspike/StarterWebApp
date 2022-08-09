@@ -1,4 +1,6 @@
-﻿using Starter.Data.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Starter.Data;
+using Starter.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,11 @@ namespace Starter.Core.Services
 
     public class FreeAgencyManagementService : IFreeAgencyManagementService
     {
+        private StarterDbContext _context;
+        public FreeAgencyManagementService()
+        {
+            _context = new StarterDbContext(new DbContextOptions<StarterDbContext>());
+        }
 
         public async Task<FreeAgency> Get(int id)
         {
@@ -36,20 +43,34 @@ namespace Starter.Core.Services
 
         public async Task<List<FreeAgency>> GetList()
         {
-            var res = new List<FreeAgency>();
 
-            var one = new FreeAgency()
-            {
-                CountryId = 1,
-                Latitude = 33333,
-                Longitude = 6666,
-                IsAir = false,
-                IsSea = true
-            };
+            var query = _context.Port; //.Where(m => m.CountryId == 20);
+           
+            var results = query.Select(m => new FreeAgency {
+                CountryId = m.CountryId,
+                Latitude = m.Latitude,
+                Longitude = m.Longitude,
+                IsAir = m.IsAir,
+                IsSea = m.IsSea
+            }).ToList();
+          
 
 
-            res.Add(one);   
-            return res;
+
+
+
+            //var one = new FreeAgency()
+            //{
+            //    CountryId = 1,
+            //    Latitude = 33333,
+            //    Longitude = 6666,
+            //    IsAir = false,
+            //    IsSea = true
+            //};
+
+
+            //res.Add(one);   
+            return results;
         }
 }
 
