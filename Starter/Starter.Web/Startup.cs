@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 //using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Starter.Core.Mapping;
 using Starter.Core.Services;
+using Starter.Data;
 using Starter.Services;
 
 namespace Starter.Web
@@ -25,6 +28,50 @@ namespace Starter.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+          //  var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            //services.AddDbContext<EdgeDataContextTransient>(options =>
+            //{
+            //    options.UseSqlServer(connectionString).EnableSensitiveDataLogging();
+            //    options.ConfigureWarnings(warnings => warnings.Default(WarningBehavior.Ignore)
+            //        .Ignore(30000)); // Ignore model column validation warnings as we are not using mirgrations this shouldn't matter 
+
+            //    // Register the entity sets needed by OpenIddict.
+            //    options.UseOpenIddict();
+            //}, ServiceLifetime.Transient);
+
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+           // services.AddDbContext<StarterDbContext>(options => options.UseSqlServer(connectionString));
+
+            //services.AddDbContext<StarterDbContext>(options => options.UseSqlServer(connectionString,
+            //    providerOptions => providerOptions.EnableRetryOnFailure()));
+
+
+            // services.AddDbContext<StarterDbContext>(options =>
+            //{
+            //    options.UseSqlServer(connectionString).EnableSensitiveDataLogging();
+            //    options.ConfigureWarnings(warnings => warnings.Default(WarningBehavior.Ignore)
+            //           .Ignore(30000)); // Ignore model column validation warnings as we are not using mirgrations this shouldn't matter 
+            //    options.ConfigureWarnings(warnings => warnings
+            //            .Ignore(SqlServerEventId.SavepointsDisabledBecauseOfMARS)); // Ignore MARS save points 
+            //    // Register the entity sets needed by OpenIddict.
+            //   // options.UseOpenIddict();
+            //});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             services.AddControllersWithViews();
             services.AddMvc(options => options.EnableEndpointRouting = false)
                 .AddControllersAsServices();
