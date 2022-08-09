@@ -54,22 +54,6 @@ namespace Starter.Core.Services
                 IsSea = m.IsSea
             }).ToList();
           
-
-
-
-
-
-            //var one = new FreeAgency()
-            //{
-            //    CountryId = 1,
-            //    Latitude = 33333,
-            //    Longitude = 6666,
-            //    IsAir = false,
-            //    IsSea = true
-            //};
-
-
-            //res.Add(one);   
             return results;
         }
 }
