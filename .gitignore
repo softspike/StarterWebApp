@@ -8,3 +8,5 @@ Starter/.vs/Starter/v16/.suo
 Starter/Starter.Web/starter/src/app/appStructure.txt
 
 *.cache
+
+Starter/Starter.Core/bin/Debug/net5.0/Starter.Core.dll
