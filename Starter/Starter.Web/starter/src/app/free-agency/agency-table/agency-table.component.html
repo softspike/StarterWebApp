@@ -2,7 +2,7 @@
     <div fxLayout="row" > 
         <mat-form-field fxFlex>
           <!-- <input matInput [(ngModel)]="request.searchText" (keyup.enter)="getList()" placeholder="Name & Code PORTS"> -->
-            <input matInput placeholder="Name & Code PORTS">
+            <input matInput placeholder="Player Name">
             <mat-icon (click)="clearSearch()" matSuffix>clear</mat-icon>
             <mat-icon (click)="search()" matPrefix>search</mat-icon>
         </mat-form-field>
@@ -22,8 +22,8 @@
         </div>
     </div>
 
-    <!-- <core-page-size (pageSize)="setPageSize($event)"></core-page-size> -->
-    <div class="scroll-area" set-scroll [offsetHeight]="40">
+
+    <div>
         <mat-table matSort class="mat-elevation-z8" [dataSource]="response">
           <ng-container matColumnDef="buttons">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
@@ -34,24 +34,29 @@
             </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="country">
+          <ng-container matColumnDef="countryId">
             <mat-header-cell mat-sort-header *matHeaderCellDef>Country</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.country}}</mat-cell>
+            <mat-cell *matCellDef="let row">{{row.countryId}}</mat-cell>
           </ng-container>
     
-          <ng-container matColumnDef="name">
-            <mat-header-cell mat-sort-header *matHeaderCellDef>Name</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+          <ng-container matColumnDef="isAir">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>isAir</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.isAir}}</mat-cell>
           </ng-container>
     
-          <ng-container matColumnDef="code">
-            <mat-header-cell mat-sort-header *matHeaderCellDef>Code</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.code}}</mat-cell>
+          <ng-container matColumnDef="isDeleted">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>isDeleted</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.isDeleted}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="isSea">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>isDeleted</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.isSea}}</mat-cell>
           </ng-container>
     
-          <ng-container matColumnDef="long">
-            <mat-header-cell mat-sort-header *matHeaderCellDef>Long</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.long}}</mat-cell>
+          <ng-container matColumnDef="latitude">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>latitude</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.latitude}}</mat-cell>
           </ng-container>
     
           <ng-container matColumnDef="lat">
@@ -59,7 +64,11 @@
             <mat-cell *matCellDef="let row">{{row.lat}}</mat-cell>
           </ng-container>
 
-
+          <ng-container matColumnDef="longitude">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>longitude</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.longitude}}</mat-cell>
+          </ng-container>
+    
           <ng-container matColumnDef="type">
             <mat-header-cell mat-sort-header *matHeaderCellDef>Type</mat-header-cell>
             <mat-cell *matCellDef="let row">

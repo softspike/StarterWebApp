@@ -17,7 +17,7 @@ import { Subject } from 'rxjs';
 export class AgencyTableComponent implements OnInit, OnDestroy {
 response: any[] = [];
   searchText = "";
-  displayedColumns = ['buttons', 'country', 'name', 'code', 'long', 'lat','type'];
+  displayedColumns = ['buttons', 'countryId', 'isAir', 'isDeleted', 'isSea', 'latitude', 'longitude', 'type'];
   private alive = true;
 
 
