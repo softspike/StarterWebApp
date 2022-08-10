@@ -16,6 +16,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSnackBarModule,
     MatAutocompleteModule,
     MatCheckboxModule,
+    MatTooltipModule,
     
     
   ],
@@ -60,6 +62,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSnackBarModule,
     MatAutocompleteModule,
     MatCheckboxModule,
+    MatTooltipModule,
     
   ],
 

@@ -28,7 +28,7 @@
           <ng-container matColumnDef="buttons">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">
-              <button color="warn" (click)="edit(row)" mat-mini-fab>
+              <button color="warn" (click)="edit(row)" mat-mini-fab matTooltip="Edit Entry">
                 <mat-icon>touch_app</mat-icon>
               </button>
             </mat-cell>
