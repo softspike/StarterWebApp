@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgencyTableComponent } from './free-agency/agency-table/agency-table.component';
@@ -34,14 +33,11 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     FetchDataComponent,
     AgencyTableComponent,
     AgencyButtonComponent,
@@ -80,7 +76,6 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
     
     RouterModule.forRoot([
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'counter', component: CounterComponent },
     { path: 'fetch-data', component: FetchDataComponent },
 ], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule
