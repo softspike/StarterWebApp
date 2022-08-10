@@ -28,7 +28,7 @@
           <ng-container matColumnDef="buttons">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">
-              <button color="warn" (click)="edit(row)" mat-mini-fab matTooltip="Edit Entry">
+              <button color="basic" (click)="edit(row)" mat-mini-fab matTooltip="Edit Entry">
                 <mat-icon>touch_app</mat-icon>
               </button>
             </mat-cell>
@@ -77,6 +77,56 @@
               <span *ngIf="row.isAir">Air</span>
             </mat-cell>
           </ng-container>
+
+          <ng-container matColumnDef="invite">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <button color="primary" (click)="edit(row)" class="mat-elevation-z3" mat-mini-fab matTooltip="Invite Entry">
+                <mat-icon>person_add</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <button color="warn" (click)="edit(row)" class="mat-elevation-z3" mat-mini-fab matTooltip="Delete Entry">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+  <!-- Mobile view start -->
+
+        <ng-container matColumnDef="buttonsMobile">
+          <mat-header-cell *matHeaderCellDef>Menu</mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <button class="mat-micro" mat-icon-button [matMenuTriggerFor]="appMenu">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+            <mat-menu #appMenu="matMenu" class="p-10">
+              <div>
+                <div fxLayout="row" fxLayoutAlign="start stretch" fxLayoutGap="10px">
+                  <button (click)="edit(row)" mat-mini-fab color="accent" matTooltip="Edit">
+                    <mat-icon>touch_app</mat-icon>
+                </button>
+                <button class="mat-micro" class="m-l-10" mat-mini-fab color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                </div>
+              </div>
+            </mat-menu>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="customerMobile">
+          <mat-header-cell mat-sort-header *matHeaderCellDef>Player Name</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              {{row.latitude}}
+            </mat-cell>
+        </ng-container>
+
+  <!-- Mobile view end         -->
 
           <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>

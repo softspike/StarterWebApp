@@ -8,6 +8,7 @@ import { ThrobberService } from 'src/app/services/throbber.service';
 import { AgencyButtonComponent } from '../agency-button/agency-button.component';
 import { takeWhile, tap, finalize, debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ResponsiveService } from 'src/app/services/responsive.service';
 
 @Component({
   selector: 'app-agency-table',
@@ -17,13 +18,21 @@ import { Subject } from 'rxjs';
 export class AgencyTableComponent implements OnInit, OnDestroy {
 response: any[] = [];
   searchText = "";
-  displayedColumns = ['buttons', 'countryId', 'isAir', 'isDeleted', 'isSea', 'latitude', 'longitude', 'type'];
+  displayedColumns = ['buttons', 'countryId', 'isAir', 'isDeleted', 'isSea', 'latitude', 'longitude', 'type', 'invite', 'delete'];
   private alive = true;
-
+  isMobile = false;
+  
 
   constructor( private freeAgencyService: FreeAgencyService,
                private throbberService: ThrobberService,
+               private responsiveService: ResponsiveService,
                public dialog: MatDialog) { 
+
+                if (this.responsiveService.isMobile) {
+                  this.isMobile = true;
+                  this.displayedColumns = ['buttonsMobile', 'customerMobile'];
+                }
+
                }
 
 
@@ -73,6 +82,21 @@ response: any[] = [];
 //     this.request.searchText = "";   
 //     this.search();
 //   }
+
+// updateServer() {
+//   this.dataUpdateService.update(this.dataRequest)
+//     .pipe(takeWhile(() => this.alive))
+//     .subscribe(),
+//       (error: any) => {
+//         this.errorHandlerService.processErrorResult(error);
+//       };
+// }
+
+// updateData(id: number, value: string, dataType: string) {
+//   this.dataRequest = new DataUpdateRequest(value, dataType, id);
+//   this.dataUpdated.next(this.dataRequest);
+// }
+
 
   ngOnDestroy(): void {
     this.alive = false;
