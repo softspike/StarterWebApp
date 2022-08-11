@@ -10,6 +10,7 @@ export class FreeAgencyService {
 
 
   private apiUrl = 'api/FreeAgency';
+  
   constructor(private http: HttpClient) { }
 
   get(id: number): Observable<any> {

@@ -4,9 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgencyTableComponent } from './free-agency/agency-table/agency-table.component';
 import { AgencyButtonComponent } from './free-agency/agency-button/agency-button.component';
@@ -36,9 +34,7 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
     HomeComponent,
-    FetchDataComponent,
     AgencyTableComponent,
     AgencyButtonComponent,
     TournamentListComponent,
@@ -76,7 +72,6 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
     
     RouterModule.forRoot([
     { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'fetch-data', component: FetchDataComponent },
 ], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule
   ],

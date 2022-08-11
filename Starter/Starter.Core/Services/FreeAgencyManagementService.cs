@@ -47,11 +47,14 @@ namespace Starter.Core.Services
             var query = _context.Port; //.Where(m => m.CountryId == 20);
            
             var results = query.Select(m => new FreeAgency {
-                CountryId = m.CountryId,
+                CountryId = m.CountryId,           
                 Latitude = m.Latitude,
                 Longitude = m.Longitude,
                 IsAir = m.IsAir,
-                IsSea = m.IsSea
+                IsSea=m.IsSea, 
+                Name = m.Name
+
+
             }).ToList();
           
             return results;

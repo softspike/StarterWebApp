@@ -9,7 +9,10 @@ namespace Starter.Data.Entities
     public class Port
     {
         public int Id { get; set; }
+
         public int CountryId { get; set; }
+
+        public string Name { get; set; }
 
         public double Latitude { get; set; }
 

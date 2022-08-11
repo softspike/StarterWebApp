@@ -34,6 +34,11 @@
             </mat-cell>
           </ng-container>
 
+          <ng-container matColumnDef="name">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Player Name</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+          </ng-container>
+
           <ng-container matColumnDef="countryId">
             <mat-header-cell mat-sort-header *matHeaderCellDef>Country</mat-header-cell>
             <mat-cell *matCellDef="let row">{{row.countryId}}</mat-cell>
@@ -122,17 +127,23 @@
         <ng-container matColumnDef="customerMobile">
           <mat-header-cell mat-sort-header *matHeaderCellDef>Player Name</mat-header-cell>
             <mat-cell *matCellDef="let row">
-              {{row.latitude}}
+              {{row.name}}
             </mat-cell>
         </ng-container>
 
-  <!-- Mobile view end         -->
+  <!-- Mobile view end -->
 
           <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
         </mat-table>
 
-        <mat-paginator class="mat-elevation-z8" [length]="response?.totalRecords" [pageSize]="request?.pageSize"
-        [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+
+
+<mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 20]" showFirsLastButtons></mat-paginator>
+    <!-- <mat-paginator class="mat-elevation-z8" [length]="response?.totalRecords" [pageSize]="request?.pageSize"
+        [pageSizeOptions]="pageSizeOptions"></mat-paginator> -->
+
+
+
 </div>
     </mat-card>

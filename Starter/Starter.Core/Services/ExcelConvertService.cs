@@ -13,7 +13,6 @@ namespace Starter.Services
 
     public class ExcelConvertService : IExcelConvertService
     {
-       
         
         public Stream GetExcelNoFormat<T>(List<T> list, string workBookName)
         {
@@ -24,6 +23,5 @@ namespace Starter.Services
             mapper.Save(ms);
             return ms;
         }
-
     }
 }

@@ -18,9 +18,12 @@ import { ResponsiveService } from 'src/app/services/responsive.service';
 export class AgencyTableComponent implements OnInit, OnDestroy {
 response: any[] = [];
   searchText = "";
-  displayedColumns = ['buttons', 'countryId', 'isAir', 'isDeleted', 'isSea', 'latitude', 'longitude', 'type', 'invite', 'delete'];
+  displayedColumns = ['buttons', 'name', 'countryId', 'isAir', 'isDeleted', 'isSea', 'latitude', 'longitude', 'type', 'invite', 'delete'];
   private alive = true;
   isMobile = false;
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  totalRecords: any;
   
 
   constructor( private freeAgencyService: FreeAgencyService,
@@ -38,6 +41,7 @@ response: any[] = [];
 
   ngOnInit(){
     this.getList();
+    this.totalRecords.paginator = this.paginator;
   }
 
   getList() {
@@ -48,9 +52,12 @@ response: any[] = [];
       .subscribe((response: any[]) => {
         this.response = response;
       }
+      
 
         );
   }
+
+
 
   edit(row) {
     const dialogRef = this.dialog.open(AgencyButtonComponent, { data: { model: row } });
@@ -61,6 +68,9 @@ response: any[] = [];
         this.getList();
       });
   }
+
+
+  
 
 //   add() {
 //     const dialogRef = this.dialog.open(AgencyButtonComponent);
