@@ -33,8 +33,6 @@ namespace Starter.Data
 
         }
 
-
-
         public virtual DbSet<Port> Port { get; set; }
     }
 }

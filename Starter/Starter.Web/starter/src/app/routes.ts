@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
 
     { path: 'tournament/list', component: TournamentListComponent, data: { title: 'StarterApp | All Tournaments', breadcrumb: 'Dashboard > All Tournaments' },},
 
-    { path: 'agency/table', component: AgencyTableComponent, data: { title: 'StarterApp | Free Agency', breadcrumb: 'Dashboard > Free Agency' },},
+    { path: 'agency/table', component: AgencyTableComponent, data: { title: 'StarterApp | Agency Table', breadcrumb: 'Dashboard > Free Agency' },},
 
     { path: 'user-types/captain-page', component: CaptainPageComponent, data: { title: 'StarterApp | Captain', breadcrumb: 'Dashboard > Captain Page' },},
 

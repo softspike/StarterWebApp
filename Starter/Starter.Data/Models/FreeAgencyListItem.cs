@@ -9,11 +9,22 @@ namespace Starter.Data.Models
     public class FreeAgencyListItem : ListItem
     {
 
-        public string Country { get; set; }
+        public int CountryId { get; set; }
+
+        public string Name { get; set; }
+
+        public string Code { get; set; }
+
+        public double Lat { get; set; }
 
         public double Long { get; set; }
-        public double Lat { get; set; }
-        public bool isAir { get; set; }
-        public bool isSea { get; set; }
+
+        public bool IsAir { get; set; }
+
+        public bool IsSea { get; set; }
+
+        public bool IsDeleted { get; set; } //Change to Deleted DateTime?
+
+        //[ForeignKey("CountryId")] public Country Country { get; set; }
     }
 }
