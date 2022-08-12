@@ -13,6 +13,10 @@ namespace Starter.Data.Models
         [Npoi.Mapper.Attributes.Column(6)]
         public string CountryId { get; set; }
 
+        [Description("AgeGroup")]
+        [Npoi.Mapper.Attributes.Column(7)]
+        public string AgeGroup { get; set; }
+
         [Description("Name")]
         [Npoi.Mapper.Attributes.Column(1)]
         public string Name { get; set; }

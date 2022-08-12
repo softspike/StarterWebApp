@@ -3,12 +3,17 @@
     width: 10% !important;
   }
 
-  .mat-column-countryId{
-    flex: 0 0 10% !important;
-    width: 10% !important;
+  .mat-column-name{
+    flex: 0 0 12% !important;
+    width: 12% !important;
   }
 
-  .mat-column-isAir{
+  .mat-column-location{
+    flex: 0 0 12% !important;
+    width: 12% !important;
+  }
+
+  .mat-column-postCode{
     flex: 0 0 10% !important;
     width: 10% !important;
   }
@@ -32,6 +37,11 @@
     flex: 0 0 10% !important;
     width: 10% !important;
   }
+
+  .mat-column-ageGroup{
+    flex: 0 0 10% !important;
+    width: 10% !important;
+  }
   
   .mat-column-type{
     flex: 0 0 10% !important;
@@ -39,11 +49,11 @@
   }
 
   .mat-column-invite{
-    flex: 0 0 3% !important;
-    width: 3% !important;
+    flex: 0 0 4% !important;
+    width: 4% !important;
   }
 
   .mat-column-delete{
-    flex: 0 0 3% !important;
-    width: 3% !important;
+    flex: 0 0 4% !important;
+    width: 4% !important;
   }
