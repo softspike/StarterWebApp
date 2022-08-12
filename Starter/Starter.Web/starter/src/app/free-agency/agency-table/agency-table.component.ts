@@ -18,7 +18,7 @@ import { ResponsiveService } from 'src/app/services/responsive.service';
 export class AgencyTableComponent implements OnInit, OnDestroy {
 response: any[] = [];
   searchText = "";
-  displayedColumns = ['buttons', 'name', 'countryId', 'isAir', 'isDeleted', 'isSea', 'latitude', 'longitude', 'type', 'invite', 'delete'];
+  displayedColumns = ['buttons', 'name', 'location', 'postCode','latitude', 'longitude', 'ageGroup', 'type', 'invite', 'delete'];
   private alive = true;
   isMobile = false;
 

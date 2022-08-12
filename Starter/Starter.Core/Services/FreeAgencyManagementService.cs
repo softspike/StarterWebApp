@@ -52,7 +52,12 @@ namespace Starter.Core.Services
                 Longitude = m.Longitude,
                 IsAir = m.IsAir,
                 IsSea=m.IsSea, 
-                Name = m.Name
+                Name = m.Name,
+                AgeGroup = m.AgeGroup,
+                Location = m.Location,
+                PostCode = m.PostCode,
+                
+                
 
 
             }).ToList();
