@@ -7,13 +7,13 @@
             <mat-icon (click)="search()" matPrefix>search</mat-icon>
         </mat-form-field>
         
+
+        <!-- cloud button -->
          <div class="p-t-5 m-l-10">
-          <shared-excel-export [request]="request" type="xlsx" [api-url]="'api/FreeAgency/export'">
-          <button class="mat-micro" color="primary" mat-mini-fab>
-            <mat-icon>cloud_download</mat-icon>
-          </button>
-        </shared-excel-export>
-       </div>
+          <shared-excel-export [response]="response"  api-url="api/FreeAgency/export" file-name="FreeAgencyList"></shared-excel-export>
+        </div>
+
+
 
          <div class="m-l-10">  
             <button color="primary" (click)="add()" mat-mini-fab>
@@ -63,15 +63,6 @@
             <mat-header-cell mat-sort-header *matHeaderCellDef>Age Group</mat-header-cell>
             <mat-cell *matCellDef="let row">{{row.ageGroup}}</mat-cell>
           </ng-container>
-
-    
-          <!-- <ng-container matColumnDef="isDeleted">
-            <mat-header-cell mat-sort-header *matHeaderCellDef>Longitude</mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.isDeleted}}</mat-cell>
-          </ng-container> -->
-
-    
-
     
           <ng-container matColumnDef="type">
             <mat-header-cell mat-sort-header *matHeaderCellDef>Tournament Type</mat-header-cell>

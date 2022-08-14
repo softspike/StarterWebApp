@@ -10,7 +10,7 @@ namespace Starter.Data
 {
     public class StarterDbContext : DbContext
     {
-        private string _connectionString = "Server=DESKTOP-DIJESC4\\SQLEXPRESS01;Database=StarterDB_local;User Id=evaldas;Password=1234;MultipleActiveResultSets=true;";
+       // private string _connectionString = "Server=DESKTOP-DIJESC4\\SQLEXPRESS01;Database=StarterDB_local;User Id=evaldas;Password=1234;MultipleActiveResultSets=true;";
 
         public StarterDbContext(DbContextOptions<StarterDbContext> options
             ) : base(options)
@@ -18,21 +18,23 @@ namespace Starter.Data
           
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
 
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(_connectionString);
-            }
-        }
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer(_connectionString);
+        //    }
+       // }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
 
-        }
+        //}
 
-        public virtual DbSet<Port> Port { get; set; }
+      //  public virtual DbSet<Port> Port { get; set; }
+
+        public virtual DbSet<Country> Country { get; set; }
     }
 }

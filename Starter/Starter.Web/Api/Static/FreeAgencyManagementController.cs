@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Starter.Data;
-using Starter.Core;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Starter.Data.Models;
 using Starter.Core.Services;
 using Starter.Services;
 using System.IO;
+using Starter.Data.Entities;
 
 namespace Starter.Web.Controllers
 {
@@ -29,21 +26,20 @@ namespace Starter.Web.Controllers
         }
 
         [HttpGet("get")]
-        public async Task<FreeAgency> Get(int id)
+        public async Task<Country> Get(int id)
         {
             var res = await _freeAgencyManagementService.Get(id);
             return res;
         }
 
         [HttpGet("list")]
-        public async Task<List<FreeAgency>> GetList()
+        public async Task<List<Country>> GetList()
         {
             var res = await _freeAgencyManagementService.GetList();
             return res;
         }
 
-        [HttpPost("export")]
-        
+        [HttpGet("export")]
         public async Task<IActionResult> Export()
         {
             var list = await GetList();
@@ -52,37 +48,5 @@ namespace Starter.Web.Controllers
             return File(res, "application/octet-stream", $"Starter.xlsx");
         }
 
-        //var d = await _provider.GetData(_customerCode, cr);
-        //_provider = null;
-        //        SetSumOfPo(d);
-        //var stream = _excelConvertService.GetExcelNoFormat(d, "EWL Export");
-        //d.ClearList();
-        //        var res = ((MemoryStream)stream).ToArray();
-        //stream = null;
-        //        return res;
     }
 }
-
-
-//    [HttpGet("get")]
-//    public async Task<PortResponse> Get(int id)
-//    {
-//        var agency = await _freeAgencyService.Get(id);
-//        var mappedData = AutoMapper.Mapper.Map<Agency, PortResponse>(agency);
-//        return mappedData;
-//    }
-
-//    [HttpGet("list")]
-//    public async Task<PageResponse<PortListItem>> GetPagedData(PageRequest request)
-//    {
-//        var pagedData = await _freeAgencyService.GetList(request);
-//        return pagedData;
-//    }
-
-
-
-
-
-
-
-//}

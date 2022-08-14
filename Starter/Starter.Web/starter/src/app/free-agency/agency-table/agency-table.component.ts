@@ -1,14 +1,11 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { PageRequest, PageResponse } from 'src/app/models/table.models';
 import { FreeAgencyService } from 'src/app/services/free-agency.service';
 import { ThrobberService } from 'src/app/services/throbber.service';
 import { AgencyButtonComponent } from '../agency-button/agency-button.component';
-import { takeWhile, tap, finalize, debounceTime } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { takeWhile } from 'rxjs/operators';
 import { ResponsiveService } from 'src/app/services/responsive.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-agency-table',
@@ -16,48 +13,38 @@ import { ResponsiveService } from 'src/app/services/responsive.service';
   styleUrls: ['./agency-table.component.scss']
 })
 export class AgencyTableComponent implements OnInit, OnDestroy {
-response: any[] = [];
+  response: any;
   searchText = "";
   displayedColumns = ['buttons', 'name', 'location', 'postCode','latitude', 'longitude', 'ageGroup', 'type', 'invite', 'delete'];
   private alive = true;
   isMobile = false;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   totalRecords: any;
   
 
   constructor( private freeAgencyService: FreeAgencyService,
-               private throbberService: ThrobberService,
                private responsiveService: ResponsiveService,
+               private snackBarService: SnackbarService,
                public dialog: MatDialog) { 
 
                 if (this.responsiveService.isMobile) {
                   this.isMobile = true;
                   this.displayedColumns = ['buttonsMobile', 'customerMobile'];
                 }
-
                }
-
 
   ngOnInit(){
     this.getList();
-    this.totalRecords.paginator = this.paginator;
   }
 
   getList() {
-    this.throbberService.block();
     this.freeAgencyService.list()
-      .pipe(takeWhile(() => this.alive),
-        finalize(() => { this.throbberService.unblock(); }))
-      .subscribe((response: any[]) => {
-        this.response = response;
-      }
-      
-
-        );
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((response: any[]) =>  this.response = response
+    ,
+    (error: any) => {
+      this.snackBarService.show('Server Error');
+    });
   }
-
-
 
   edit(row) {
     const dialogRef = this.dialog.open(AgencyButtonComponent, { data: { model: row } });
@@ -68,9 +55,6 @@ response: any[] = [];
         this.getList();
       });
   }
-
-
-  
 
 //   add() {
 //     const dialogRef = this.dialog.open(AgencyButtonComponent);
