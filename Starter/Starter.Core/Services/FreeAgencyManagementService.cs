@@ -1,68 +1,46 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Starter.Data;
+using Starter.Data.Entities;
 using Starter.Data.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Starter.Core.Services
 {
     public interface IFreeAgencyManagementService
     {
-        Task<FreeAgency> Get(int id);
+        Task<Country> Get(int id);
 
-        Task<List<FreeAgency>> GetList();
+        Task<List<Country>> GetList();
     }
 
     public class FreeAgencyManagementService : IFreeAgencyManagementService
     {
         private StarterDbContext _context;
-        public FreeAgencyManagementService()
+        public FreeAgencyManagementService(StarterDbContext context)
         {
-            _context = new StarterDbContext(new DbContextOptions<StarterDbContext>());
+            //_context = new StarterDbContext(new DbContextOptions<StarterDbContext>());
+
+            _context = context;
         }
 
-        public async Task<FreeAgency> Get(int id)
+        public async Task<Country> Get(int id)
         {
-            var res = new FreeAgency();
 
-            var one = new FreeAgency()
-            {
-                CountryId = 1,
-                Latitude = 33333,
-                Longitude = 6666,
-                IsAir = false,
-                IsSea = true
-            };
-
-            return one;
+            var country = await _context.Country.FirstOrDefaultAsync(a => a.Id == id);
+   
+            return country;
+;
         }
 
 
-        public async Task<List<FreeAgency>> GetList()
+        public async Task<List<Country>> GetList()
         {
 
-            var query = _context.Port; //.Where(m => m.CountryId == 20);
-           
-            var results = query.Select(m => new FreeAgency {
-                CountryId = m.CountryId,           
-                Latitude = m.Latitude,
-                Longitude = m.Longitude,
-                IsAir = m.IsAir,
-                IsSea=m.IsSea, 
-                Name = m.Name,
-                AgeGroup = m.AgeGroup,
-                Location = m.Location,
-                PostCode = m.PostCode,
-                
-                
-
-
-            }).ToList();
+           var query = await _context.Country.ToListAsync();
           
-            return results;
+            return query;
         }
 }
 

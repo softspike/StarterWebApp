@@ -1,10 +1,6 @@
-<div (click)="getXls()" matTooltip="Get XLS">
-      <div #wrapper>
-        <ng-content></ng-content>
-      </div>
-      <button *ngIf='!wrapper.innerHTML.trim()' class="mat-micro" color="primary" mat-mini-fab>
-        <mat-icon>cloud_download</mat-icon>
-      </button>
-  </div>
+<button *ngIf="response" mat-mini-fab color="primary" matTooltip="Get XLS" (click)="getXls()">
+  <mat-icon>cloud_download</mat-icon>
+</button>
   
-  
+
+
