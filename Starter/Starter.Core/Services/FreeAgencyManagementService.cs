@@ -20,9 +20,9 @@ namespace Starter.Core.Services
         private StarterDbContext _context;
         public FreeAgencyManagementService(StarterDbContext context)
         {
-            //_context = new StarterDbContext(new DbContextOptions<StarterDbContext>());
+           // _context = new StarterDbContext(new DbContextOptions<StarterDbContext>());
 
-            _context = context;
+           _context = context;
         }
 
         public async Task<Country> Get(int id)
