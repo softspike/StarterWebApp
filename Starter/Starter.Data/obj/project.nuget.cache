@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "oN0wPKESoe8F/0ftuYxqweKxnTh/uoeKbQyvODyDfqeAjEsTeySfl61cDNUa1vKdg62hcq7YoSJkZ9PcZpu4GA==",
+  "dgSpecHash": "UJLJxeCItvJcH8qejMOpZSqvGJhyMiSFYHcymqaYZ5YOHbNxV8nnJY7oKCyKdLTcfTnEzps9TvUEaZ5qg1xRSA==",
   "success": true,
   "projectFilePath": "C:\\starterapp_solution_v1\\StarterWebApp\\Starter\\Starter.Data\\Starter.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
+    "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.17\\microsoft.aspnetcore.cryptography.internal.5.0.17.nupkg.sha512",
+    "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.17\\microsoft.aspnetcore.cryptography.keyderivation.5.0.17.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\5.0.17\\microsoft.aspnetcore.identity.entityframeworkcore.5.0.17.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\5.0.17\\microsoft.aspnetcore.identity.ui.5.0.17.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -15,12 +15,13 @@ namespace Starter.Web.Controllers
     {
         private readonly IFreeAgencyManagementService _freeAgencyManagementService;
 
-        private readonly IExcelConvertService _excelConvertService;
+       private readonly IExcelConvertService _excelConvertService;
 
 
         public FreeAgencyController(IFreeAgencyManagementService freeAgencyManagementService,
             IExcelConvertService excelConvertService)
         {
+
             _freeAgencyManagementService = freeAgencyManagementService;
             _excelConvertService = excelConvertService;
         }

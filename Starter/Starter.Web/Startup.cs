@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 //using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -10,6 +11,7 @@ using Starter.Core.Mapping;
 using Starter.Core.Services;
 using Starter.Data;
 using Starter.Services;
+using System.Data;
 
 namespace Starter.Web
 {
@@ -143,8 +145,13 @@ namespace Starter.Web
         }
 
 
+
         private void InjectionServices(IServiceCollection services)
         {
+            //_context = new StarterDbContext(new DbContextOptions<StarterDbContext>());
+           // var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddTransient<StarterDbContext>(sp => new StarterDbContext(new DbContextOptions<StarterDbContext>()));
+
             services.AddScoped<IFreeAgencyManagementService, FreeAgencyManagementService>();
             services.AddScoped<IExcelConvertService, ExcelConvertService>();
         }
