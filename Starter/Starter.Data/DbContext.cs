@@ -36,5 +36,7 @@ namespace Starter.Data
       //  public virtual DbSet<Port> Port { get; set; }
 
         public virtual DbSet<Country> Country { get; set; }
+
+        public virtual DbSet<FreeAgency> FreeAgency { get; set; }
     }
 }

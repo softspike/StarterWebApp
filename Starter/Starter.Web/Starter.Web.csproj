@@ -13,6 +13,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\**" />
+    <Content Remove="Controllers\**" />
+    <EmbeddedResource Remove="Controllers\**" />
+    <None Remove="Controllers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="starter\tsconfig.json" />
   </ItemGroup>
 
@@ -50,10 +57,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Starter.Core\Starter.Core.csproj" />
     <ProjectReference Include="..\Starter.Data\Starter.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
  

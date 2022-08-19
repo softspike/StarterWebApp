@@ -1,6 +1,5 @@
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\bin\Debug\net5.0\Starter.Data.deps.json
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\bin\Debug\net5.0\Starter.Data.dll
-C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\bin\Debug\net5.0\ref\Starter.Data.dll
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\bin\Debug\net5.0\Starter.Data.pdb
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\Starter.Data.GeneratedMSBuildEditorConfig.editorconfig
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\Starter.Data.AssemblyInfoInputs.cache
@@ -9,3 +8,5 @@ C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\St
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\Starter.Data.dll
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\ref\Starter.Data.dll
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\Starter.Data.pdb
+C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\Starter.Data.csproj.AssemblyReference.cache
+C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Data\obj\Debug\net5.0\refint\Starter.Data.dll

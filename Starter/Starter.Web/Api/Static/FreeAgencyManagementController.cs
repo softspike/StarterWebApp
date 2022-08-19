@@ -34,7 +34,7 @@ namespace Starter.Web.Controllers
         }
 
         [HttpGet("list")]
-        public async Task<List<Country>> GetList()
+        public async Task<List<FreeAgency>> GetList()
         {
             var res = await _freeAgencyManagementService.GetList();
             return res;
