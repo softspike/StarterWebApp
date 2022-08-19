@@ -12,7 +12,7 @@ namespace Starter.Core.Services
     {
         Task<Country> Get(int id);
 
-        Task<List<Country>> GetList();
+        Task<List<FreeAgency>> GetList();
     }
 
     public class FreeAgencyManagementService : IFreeAgencyManagementService
@@ -35,10 +35,10 @@ namespace Starter.Core.Services
         }
 
 
-        public async Task<List<Country>> GetList()
+        public async Task<List<FreeAgency>> GetList()
         {
 
-           var query = await _context.Country.ToListAsync();
+           var query = await _context.FreeAgency.ToListAsync();
           
             return query;
         }
