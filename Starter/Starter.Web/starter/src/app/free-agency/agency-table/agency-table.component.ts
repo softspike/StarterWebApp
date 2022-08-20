@@ -39,7 +39,7 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
   getList() {
     this.freeAgencyService.list()
       .pipe(takeWhile(() => this.alive))
-      .subscribe((response: any[]) =>  this.response = response
+      .subscribe((response: any[]) => this.response = response
     ,
     (error: any) => {
       this.snackBarService.show('Server Error');
