@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Starter.Core.Mapping;
 using Starter.Core.Services;
 using Starter.Data;
+using Starter.Data.Models;
 using Starter.Services;
 using System.Data;
 
@@ -32,8 +33,19 @@ namespace Starter.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-
             services.AddDbContext<StarterDbContext>();
+
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<StarterDbContext>();
+
+
+
+
+
+
+
+
 
             //services.AddDbContext<StarterDbContext>(options =>
             //{
@@ -183,6 +195,9 @@ namespace Starter.Web
             //        name: "default",
             //        pattern: "{controller}/{action=Index}/{id?}");
             //});
+
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

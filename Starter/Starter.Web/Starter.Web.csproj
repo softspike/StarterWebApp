@@ -59,6 +59,10 @@
     <ProjectReference Include="..\Starter.Data\Starter.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Api\Dynamic\" />
+  </ItemGroup>
+
  
 
 </Project>
