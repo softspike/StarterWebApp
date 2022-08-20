@@ -8,8 +8,6 @@ namespace Starter.Data.Entities
     {
         public int Id { get; set; }
 
-        
-
         public string Name { get; set; }
 
         public int CountryId { get; set; }
@@ -22,9 +20,6 @@ namespace Starter.Data.Entities
 
         public string AgeGroup { get; set; }
 
-        public string TournamentTypeId { get; set; }
-
-       
-
+        public int TournamentTypeId { get; set; }
     }
 }

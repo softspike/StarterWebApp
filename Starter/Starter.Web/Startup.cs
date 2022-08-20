@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -30,7 +31,68 @@ namespace Starter.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-          //  var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+
+            services.AddDbContext<StarterDbContext>();
+
+            //services.AddDbContext<StarterDbContext>(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //});
+
+
+
+            //var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            //services.Configure<KestrelServerOptions>(options =>
+            //{
+            //    options.AllowSynchronousIO = true;
+            //});
+
+
+            //services.AddDbContext<StarterDbContext>(options =>
+            //{
+            //    options.UseSqlServer(connectionString).EnableSensitiveDataLogging();
+            //    options.ConfigureWarnings(warnings => warnings.Default(WarningBehavior.Ignore)
+            //            .Ignore(30000));
+            //    options.ConfigureWarnings(warnings => warnings
+            //            .Ignore(SqlServerEventId.SavepointsDisabledBecauseOfMARS));
+            //});
+
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            //services.AddDbContext<StarterDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //services.AddDefaultIdentity<ApplicationUser>()
+            //    .AddIdentiyForObserver<AutheticationContext>();
+
+
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            //services.AddControllersWithViews();
+            //services.AddDbContext<StarterDbContext>
+            //    (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+
+
+
+
+
+
+
+
+            //    var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+
+
 
             //services.AddDbContext<EdgeDataContextTransient>(options =>
             //{
@@ -42,9 +104,9 @@ namespace Starter.Web
             //    options.UseOpenIddict();
             //}, ServiceLifetime.Transient);
 
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
-           // services.AddDbContext<StarterDbContext>(options => options.UseSqlServer(connectionString));
+
+            //  services.AddDbContext<StarterDbContext>(options => options.UseSqlServer(connectionString));
 
             //services.AddDbContext<StarterDbContext>(options => options.UseSqlServer(connectionString,
             //    providerOptions => providerOptions.EnableRetryOnFailure()));
@@ -60,7 +122,6 @@ namespace Starter.Web
             //    // Register the entity sets needed by OpenIddict.
             //   // options.UseOpenIddict();
             //});
-
 
 
 
@@ -155,5 +216,9 @@ namespace Starter.Web
             services.AddScoped<IFreeAgencyManagementService, FreeAgencyManagementService>();
             services.AddScoped<IExcelConvertService, ExcelConvertService>();
         }
+
+
+
+
     }
 }

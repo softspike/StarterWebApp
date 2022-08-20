@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Starter.Data;
 using Starter.Data.Entities;
 using Starter.Data.Models;
@@ -31,7 +31,6 @@ namespace Starter.Core.Services
             var country = await _context.Country.FirstOrDefaultAsync(a => a.Id == id);
    
             return country;
-;
         }
 
 

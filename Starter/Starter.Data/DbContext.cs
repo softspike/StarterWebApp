@@ -25,7 +25,7 @@ namespace Starter.Data
         //    {
         //        optionsBuilder.UseSqlServer(_connectionString);
         //    }
-       // }
+        // }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
@@ -33,10 +33,20 @@ namespace Starter.Data
 
         //}
 
-      //  public virtual DbSet<Port> Port { get; set; }
+        //  public virtual DbSet<Port> Port { get; set; }
 
         public virtual DbSet<Country> Country { get; set; }
 
         public virtual DbSet<FreeAgency> FreeAgency { get; set; }
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+            optionsBuilder.UseSqlServer
+                ("Server=DESKTOP-DIJESC4\\SQLEXPRESS01;Database=StarterDB_local;Trusted_Connection=True;MultipleActiveResultSets=true;");
+            base.OnConfiguring(optionsBuilder);
+        }
+
     }
 }
