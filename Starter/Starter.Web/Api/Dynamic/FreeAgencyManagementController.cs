@@ -7,7 +7,7 @@ using Starter.Services;
 using System.IO;
 using Starter.Data.Entities;
 
-namespace Starter.Web.Controllers
+namespace Starter.Web.Api.Dynamic
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -15,7 +15,7 @@ namespace Starter.Web.Controllers
     {
         private readonly IFreeAgencyManagementService _freeAgencyManagementService;
 
-       private readonly IExcelConvertService _excelConvertService;
+        private readonly IExcelConvertService _excelConvertService;
 
 
         public FreeAgencyController(IFreeAgencyManagementService freeAgencyManagementService,
