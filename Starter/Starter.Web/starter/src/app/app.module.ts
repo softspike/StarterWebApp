@@ -12,10 +12,6 @@ import { TournamentListComponent } from './tournament-info/tournament-list/tourn
 import { TournamentButtonComponent } from './tournament-info/tournament-button/tournament-button.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { appRoutes } from './routes';
-
-
-// feature Modules
-
 import { MaterialModule } from './material/material/material.module';
 import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
 import { BreadcrumbModule } from 'angular-crumbs';
@@ -31,7 +27,6 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
 import { UserComponent } from './user-types/user/user.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserService } from './services/user.service';
-
 
 
 @NgModule({
@@ -57,14 +52,12 @@ import { UserService } from './services/user.service';
 
   ],
 
-
   imports: [
 
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     BreadcrumbModule,
     FlexLayoutModule,
    
-
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
@@ -73,8 +66,6 @@ import { UserService } from './services/user.service';
     ReactiveFormsModule,
  
  
-
-    
     RouterModule.forRoot([
     { path: '', component: HomeComponent, pathMatch: 'full' },
 ], { relativeLinkResolution: 'legacy' }),

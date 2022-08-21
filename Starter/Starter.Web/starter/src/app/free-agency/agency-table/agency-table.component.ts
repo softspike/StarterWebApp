@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FreeAgencyService } from 'src/app/services/free-agency.service';
-import { ThrobberService } from 'src/app/services/throbber.service';
 import { AgencyButtonComponent } from '../agency-button/agency-button.component';
 import { takeWhile } from 'rxjs/operators';
 import { ResponsiveService } from 'src/app/services/responsive.service';

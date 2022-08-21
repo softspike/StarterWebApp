@@ -1,27 +1,21 @@
 <mat-card>
     <div fxLayout="row"> 
         <mat-form-field fxFlex>
-          <!-- <input matInput [(ngModel)]="request.searchText" (keyup.enter)="getList()" placeholder="Name & Code PORTS"> -->
             <input matInput placeholder="Player Name">
             <mat-icon (click)="clearSearch()" matSuffix>clear</mat-icon>
             <mat-icon (click)="search()" matPrefix>search</mat-icon>
         </mat-form-field>
         
-
         <!-- cloud button -->
          <div class="p-t-5 m-l-10">
           <shared-excel-export [response]="response" api-url="api/FreeAgency/export" file-name="FreeAgencyList"></shared-excel-export>
         </div>
-
-
-
          <div class="m-l-10">  
             <button color="primary" (click)="add()" mat-mini-fab>
                 <mat-icon>add_circle</mat-icon>
             </button>
         </div>
     </div>
-
 
     <div>
         <mat-table matSort class="mat-elevation-z8" [dataSource]="response">
@@ -127,13 +121,6 @@
           <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
         </mat-table>
 
-
-
-<mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 20]" showFirsLastButtons></mat-paginator>
-    <!-- <mat-paginator class="mat-elevation-z8" [length]="response?.totalRecords" [pageSize]="request?.pageSize"
-        [pageSizeOptions]="pageSizeOptions"></mat-paginator> -->
-
-
-
-</div>
-    </mat-card>
+    <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 20]" showFirsLastButtons></mat-paginator>
+  </div>
+</mat-card>

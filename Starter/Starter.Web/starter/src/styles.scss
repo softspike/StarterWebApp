@@ -46,7 +46,6 @@ html .page-wrapper {
   
   .topbar {
     position: relative;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
   }
 
@@ -64,14 +63,10 @@ html .page-wrapper {
     }
   
   .example-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
   }
   
   .example-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-       `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
 
@@ -136,36 +131,36 @@ html .page-wrapper {
       background: orange !important;
     }
   
-    .mat-micro, .mat-micro-no-hide {
-      width: 30px !important;
-      height: 30px !important;
-      line-height: 30px !important;
-    
-      .mat-button-wrapper
-      {
-        padding: 0 !important;
-      }
-    
-      .mat-icon, .mat-icon-button i {
-        line-height: 20px;
-      }
-    
-      .mat-icon {
-        width: 20px;
-        height: 20px;
-        margin: 0;
-      }
-    
-      .material-icons {
-        font-size: 20px;
-      }
+  .mat-micro, .mat-micro-no-hide {
+    width: 30px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+  
+    .mat-button-wrapper
+    {
+      padding: 0 !important;
     }
-    
-      .mat-micro.mat-nano {
-        width: 25px !important;
-        height: 25px !important;
-        line-height: 25px !important;
+  
+    .mat-icon, .mat-icon-button i {
+      line-height: 20px;
     }
+  
+    .mat-icon {
+      width: 20px;
+      height: 20px;
+      margin: 0;
+    }
+  
+    .material-icons {
+      font-size: 20px;
+    }
+  }
+    
+  .mat-micro.mat-nano {
+    width: 25px !important;
+    height: 25px !important;
+    line-height: 25px !important;
+  }
         
   .center-lg {
     -ms-flex-pack: center;
@@ -239,16 +234,11 @@ html .page-wrapper {
     background: none !important;
     border: none !important;
   }
-//end mapping scss  
 
-
-//forms start
 .simple-form mat-form-field
 {
   margin-top: 10px;
 }
-
-//forms end
 
 .p-10 {
   padding: 10px;
@@ -260,4 +250,8 @@ html .page-wrapper {
 
 .m-l-20 {
   margin-left: 20px;
+}
+
+.p-t-20 {
+  padding-top: 20px;
 }
