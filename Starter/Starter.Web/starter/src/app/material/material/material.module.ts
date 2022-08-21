@@ -18,6 +18,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCheckboxModule,
     MatTooltipModule,
     MatMenuModule,
+    MatTabsModule,
     
     
   ],
@@ -66,6 +68,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCheckboxModule,
     MatTooltipModule,
     MatMenuModule,
+    MatTabsModule,
     
   ],
 
