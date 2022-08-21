@@ -42,6 +42,21 @@ namespace Starter.Data
         public virtual DbSet<FreeAgency> FreeAgency { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            //SetUpFks(builder);
+        }
+
+        private static void SetUpFks(ModelBuilder builder)
+        {
+            //builder.Entity<FreeAgency>()
+            //    .HasOne(e => e.Country)
+            //    .WithOne()
+            //    .HasForeignKey<Country>();
+        }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,16 +1,17 @@
 ﻿
+using Starter.Data.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace Starter.Data.Entities
 {
-    public class FreeAgency
+    public class FreeAgencyModel
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public int CountryId { get; set; }
+        public ListItem Country { get; set; }
 
         public string PostCode { get; set; }
 
@@ -20,8 +21,7 @@ namespace Starter.Data.Entities
 
         public string AgeGroup { get; set; }
 
-        public int TournamentTypeId { get; set; }
+        //public ListItem TournamentType { get; set; }
 
-        [ForeignKey("CountryId")] public Country Country { get; set; }
     }
 }

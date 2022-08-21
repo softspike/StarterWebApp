@@ -25,7 +25,7 @@ namespace Starter.Web.Api.Dynamic
         [HttpPost]
         [Route("Register")]
         //POST : /api/ApplicationUser/Register
-        public async Task<Object> PostApplicationUser(ApplicationUserModel model) 
+        public async Task<IActionResult> PostApplicationUser(ApplicationUserModel model) 
         {
 
             var applicationUser = new ApplicationUser()
@@ -35,15 +35,16 @@ namespace Starter.Web.Api.Dynamic
                 FullName = model.FullName,
             };
 
-            try
+            var result = await _userManager.CreateAsync(applicationUser, model.Password);
+
+            if (result.Succeeded)
             {
-                var result = await _userManager.CreateAsync(applicationUser, model.Password);
                 return Ok(result);
             }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+
+            return BadRequest(result);
+            
+            
 
         }
 

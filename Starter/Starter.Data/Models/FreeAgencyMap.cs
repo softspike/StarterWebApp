@@ -12,7 +12,7 @@ namespace Starter.Data.Models
         public FreeAgencyMap()
         {
             CreateMap<FreeAgency, FreeAgencyListItem>()
-                //.ForMember(x => x.Country, opt => opt.MapFrom(src => src.Country.Name))
+                .ForMember(x => x.CountryId, opt => opt.MapFrom(src => src.Country.Name))
                 .ForMember(x => x.Lat, opt => opt.MapFrom(src => src.Longitude))
                 .ForMember(x => x.Lat, opt => opt.MapFrom(src => src.Latitude))
                 .ForMember(x => x.Name, opt => opt.MapFrom(src => src.Name))
@@ -24,6 +24,12 @@ namespace Starter.Data.Models
                 .ForMember(x => x.Lat, opt => opt.MapFrom(src => src.Latitude))
                 .ForMember(x => x.Name, opt => opt.MapFrom(src => src.Name))
                 ;
+
+            CreateMap<FreeAgency, FreeAgencyModel>()
+               //.ForMember(x => x.Country, opt => opt.MapFrom(src => src.Longitude))
+               //.ForMember(x => x.Lat, opt => opt.MapFrom(src => src.Latitude))
+               //.ForMember(x => x.Name, opt => opt.MapFrom(src => src.Name))
+               ;
 
 
 

@@ -8,3 +8,10 @@ export class AgencyResponse {
     isAir: boolean;
     isSea: boolean;
   }
+
+  export class UserModel {
+    userName: string;
+    email: string;
+    fullName: string;
+    password: string;
+   }

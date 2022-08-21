@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OYo66XO+8eFBVsF7LKz8rzFChRPNBrSXKfIyFa0ibTDEaNredJ39KRfmeUc2XUO1SMh0eBjEyR7Rb7Ho3oBE8A==",
+  "dgSpecHash": "Dl2oeWlGAQu39oWW6uFsrqTk9fGADWgwngoiuhcRPyC3eetry6gYwYQOKCRuJdf8BnEv8LGO4QEeVpeGeIDT9A==",
   "success": true,
   "projectFilePath": "C:\\starterapp_solution_v1\\StarterWebApp\\Starter\\Starter.Data\\Starter.Data.csproj",
   "expectedPackageFiles": [
@@ -72,6 +72,7 @@
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\system.linq.dynamic.core\\1.1.8\\system.linq.dynamic.core.1.1.8.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Users\\evaldasvilkinas\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
