@@ -1,21 +1,23 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { UserModel } from '../models/models.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-
-  private apiUrl = '/api/ApplicationUser/Register';
-
-  constructor(private http: HttpClient) { }
+export class FormHelperService {
 
 
 
-registerUser(request: UserModel){
-return this.http.post<any>(this.apiUrl, request)
+  constructor() { }
+
+
+
+setModel(model: any, formGroup:UntypedFormGroup){
+  Object.keys(formGroup.controls).forEach(key => {
+    model[key] = formGroup.controls[key].value;
+  });
 }
 
 

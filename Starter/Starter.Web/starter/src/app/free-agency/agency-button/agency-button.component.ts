@@ -10,7 +10,7 @@ import { ThrobberService } from 'src/app/services/throbber.service';
 import { autoCompleteSelected } from 'src/app/validators/autocomplete-selected.validator';
 import { merge as observableMerge, fromEvent as observableFromEvent, Observable } from 'rxjs';
 import { DialogHelperService } from 'src/app/services/dialog-helper.service';
-import { AgencyResponse } from 'src/app/models/agency-response.model';
+import { AgencyResponse } from 'src/app/models/models.model';
 
 @Component({
   selector: 'app-agency-button',

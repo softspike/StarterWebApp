@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { FormBuilder, UntypedFormArray, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormHelperService } from '../services/helper.service';
+import { UserModel } from '../models/models.model';
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration',
@@ -9,38 +13,73 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(
+  formGroup: UntypedFormGroup;
+  model = new UserModel;
+  private alive: true;
+
+
+  constructor(private fb: FormBuilder,
             public service: UserService,
-            private snackBarService: SnackbarService,) { }
+            private snackBarService: SnackbarService,
+            public helper: FormHelperService) { 
+              this.buildForm();
+            }
 
   ngOnInit() {
-    this.service.formModel.reset();
+    //this.service.formModel.reset();
   }
 
-  onSubmit(){
-    this.service.register().subscribe(
-      (res: any) => {
-        if(res.succeeded){
-          this.service.formModel.reset();
-          this.snackBarService.show('Good Entry');
-        } else {
-        res.errors.forEach(element => {
-          switch (element.code) {
-            case 'DuplicateUserName':
-              //username taken
-              break;
+  buildForm(){
+      this.formGroup = this.fb.group({
+        userName: [null, [Validators.required]],
+        email: [null , [Validators.required, Validators.email]],
+        fullName: [null, [Validators.required]],
+        password: [null, [Validators.required, Validators.pattern('[A-Za-z0-9()\'+;:=?!%&amp;&lt;&gt;*/ ,.\-]{3,20}')]],
+      })
 
-              default:
-            //registration failed
-              break;
-          }  
-        });  
-        }
-      },
-      (error: any) => {
-        this.snackBarService.show('username name taken');
+  }
+
+  create() {
+    this.formGroup.markAllAsTouched();
+    if(this.formGroup.invalid){
+      return;
+    }
+    this.helper.setModel(this.model, this.formGroup);
+    this.service.registerUser(this.model)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((response: any) => {
+        console.log(response);
       }
-    )
+    ,
+    (error: any) => {
+
+      this.snackBarService.show(error.error.errors[0].description);
+    });
   }
+  // onSubmit(){
+  //   this.service.register().subscribe(
+  //     (res: any) => {
+  //       if(res.succeeded){
+  //         this.service.formModel.reset();
+  //         this.snackBarService.show('Good Entry');
+  //       } else {
+  //       res.errors.forEach(element => {
+  //         switch (element.code) {
+  //           case 'DuplicateUserName':
+  //             //username taken
+  //             break;
+
+  //             default:
+  //           //registration failed
+  //             break;
+  //         }  
+  //       });  
+  //       }
+  //     },
+  //     (error: any) => {
+  //       this.snackBarService.show('username name taken');
+  //     }
+  //   )
+  // }
 
 }

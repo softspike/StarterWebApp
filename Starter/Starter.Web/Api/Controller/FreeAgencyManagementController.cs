@@ -34,7 +34,7 @@ namespace Starter.Web.Api.Dynamic
         }
 
         [HttpGet("list")]
-        public async Task<List<FreeAgency>> GetList()
+        public async Task<List<FreeAgencyModel>> GetList()
         {
             var res = await _freeAgencyManagementService.GetList();
             return res;

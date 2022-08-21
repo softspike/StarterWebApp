@@ -1,10 +1,10 @@
 <div class="center-content">
   <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title>StarterApp</mat-card-title>
+      <mat-card-title>Register</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <mat-tab-group>
+        <!-- <mat-tab-group>
             <mat-tab label="Login">            
                 <mat-form-field class="m-t-15 example-full-width">
                     <mat-label>Email</mat-label>
@@ -16,45 +16,52 @@
                     <input matInput placeholder="Password" [(ngModel)]="log_password">
                 </mat-form-field>
                 <button mat-raised-button class="w100 m-b-10" color="primary" type="button" (click)="login()">Login</button>
-            </mat-tab>
-            <mat-tab label="Register"> 
+            </mat-tab> -->
+
+
+            <form [formGroup]="formGroup" >
+
+            <!-- <mat-tab label="Register">  -->
                 
                 <mat-form-field class="m-t-15 example-full-width">
                     <mat-label>Username</mat-label>
-                    <input matInput placeholder="Username" [(ngModel)]="reg_email">
+                    <input matInput placeholder="Username" formControlName="userName">
+                    <mat-error *ngIf="formGroup.get('userName').hasError('required')">Required</mat-error>
                 </mat-form-field>   
 
                 <mat-form-field class="m-t-15 example-full-width">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Email" [(ngModel)]="reg_email">
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="formGroup.get('email').hasError('required')">Required</mat-error>
+                    <mat-error *ngIf="formGroup.get('email').hasError('email')">no email</mat-error>
                 </mat-form-field>   
 
                 <mat-form-field class="m-t-15 example-full-width">
                     <mat-label>Full Name</mat-label>
-                    <input matInput placeholder="Full Name" [(ngModel)]="reg_email">
+                    <input matInput placeholder="Full Name" formControlName="fullName">
                 </mat-form-field>    
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Password</mat-label>
-                    <input matInput placeholder="Passwords" [(ngModel)]="reg_password">
+                    <input matInput placeholder="Passwords" formControlName="password">
                     <mat-icon matSuffix>password</mat-icon>
                 </mat-form-field>
-
+</form>
                 <!-- <mat-form-field class="example-full-width">
                     <mat-label>Confirm Password</mat-label>
                     <input matInput placeholder="Confirm Password" [(ngModel)]="reg_conf_password">fP
                     <mat-icon matSuffix>password</mat-icon>
                 </mat-form-field> -->
 
-                <button mat-raised-button class="w100 m-b-10" color="primary" type="button" (click)="register()">Register</button>
-            </mat-tab>
-          </mat-tab-group>
+                <button mat-raised-button class="w100 m-b-10" color="primary" type="button" (click)="create()">Register</button>
+            <!-- </mat-tab>
+          </mat-tab-group> -->
     </mat-card-content>
   </mat-card>
 </div>
 
 
-<p>design a form for user registration</p>
+<!-- <p>design a form for user registration</p>
 
 
 application header
@@ -88,7 +95,7 @@ registration form
                         <input type="text" class="form-control required" formControlName="ConfirmPassword">
                 </div>
             </div>
-            <!-- submit button -->
+         
             <div class="form-row">
                <div>.form-group.col-md-8...
                Sign Up
@@ -96,4 +103,4 @@ registration form
             </div>
 
     </form>
-</div>
+</div> -->

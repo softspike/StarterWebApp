@@ -12,7 +12,7 @@ namespace Starter.Core.Services
     {
         Task<Country> Get(int id);
 
-        Task<List<FreeAgency>> GetList();
+        Task<List<FreeAgencyModel>> GetList();
     }
 
     public class FreeAgencyManagementService : IFreeAgencyManagementService
@@ -34,12 +34,14 @@ namespace Starter.Core.Services
         }
 
 
-        public async Task<List<FreeAgency>> GetList()
+        public async Task<List<FreeAgencyModel>> GetList()
         {
 
-           var query = await _context.FreeAgency.ToListAsync();
+           var query = await _context.FreeAgency.Include(a => a.Country).ToListAsync();
+
+            var mapped = query.Select(a => AutoMapper.Mapper.Map<FreeAgencyModel>(a)).ToList();
           
-            return query;
+            return mapped;
         }
 }
 
