@@ -28,6 +28,9 @@ import { SetScrollDirective } from './directives/set-scroll.directive';
 import { BlockTemplateComponent } from './block-template.component';
 import { ClosePopupComponent } from './common/close-popup/close-popup.component';
 import { ExcelExportComponent } from './common/excel-export/excel-export.component';
+import { UserComponent } from './user-types/user/user.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { UserService } from './services/user.service';
 
 
 
@@ -48,6 +51,8 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
     BlockTemplateComponent,
     ClosePopupComponent,
     ExcelExportComponent,
+    UserComponent,
+    RegistrationComponent,
 
 
   ],
@@ -77,9 +82,10 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
   ],
 
   providers: [
-
+    UserService
 
   ],
+  
   bootstrap: [AppComponent]
 
 })
