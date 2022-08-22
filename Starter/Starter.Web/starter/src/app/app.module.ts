@@ -21,7 +21,6 @@ import { PlayerPageComponent } from './user-types/player-page/player-page.compon
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SetScrollDirective } from './directives/set-scroll.directive';
-import { BlockTemplateComponent } from './block-template.component';
 import { ClosePopupComponent } from './common/close-popup/close-popup.component';
 import { ExcelExportComponent } from './common/excel-export/excel-export.component';
 import { UserComponent } from './user-types/user/user.component';
@@ -43,7 +42,6 @@ import { UserService } from './services/user.service';
     PlayerPageComponent,
     PageNotFoundComponent,
     SetScrollDirective,
-    BlockTemplateComponent,
     ClosePopupComponent,
     ExcelExportComponent,
     UserComponent,

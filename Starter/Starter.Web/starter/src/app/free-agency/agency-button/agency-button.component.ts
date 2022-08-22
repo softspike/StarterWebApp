@@ -135,7 +135,7 @@ export class AgencyButtonComponent implements OnInit, AfterViewInit {
 
   private patchForm() {
     this.editForm.patchValue(this.model);
-    this.dropMarker(this.model.lat, this.model.long);
+    this.dropMarker(this.model.latitude, this.model.longitude);
   }
 
   private buildForm() {
