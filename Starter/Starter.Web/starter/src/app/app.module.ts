@@ -12,10 +12,6 @@ import { TournamentListComponent } from './tournament-info/tournament-list/tourn
 import { TournamentButtonComponent } from './tournament-info/tournament-button/tournament-button.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { appRoutes } from './routes';
-
-
-// feature Modules
-
 import { MaterialModule } from './material/material/material.module';
 import { NgxScreenfullModule } from '@ngx-extensions/screenfull';
 import { BreadcrumbModule } from 'angular-crumbs';
@@ -25,13 +21,11 @@ import { PlayerPageComponent } from './user-types/player-page/player-page.compon
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SetScrollDirective } from './directives/set-scroll.directive';
-import { BlockTemplateComponent } from './block-template.component';
 import { ClosePopupComponent } from './common/close-popup/close-popup.component';
 import { ExcelExportComponent } from './common/excel-export/excel-export.component';
 import { UserComponent } from './user-types/user/user.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserService } from './services/user.service';
-
 
 
 @NgModule({
@@ -48,7 +42,6 @@ import { UserService } from './services/user.service';
     PlayerPageComponent,
     PageNotFoundComponent,
     SetScrollDirective,
-    BlockTemplateComponent,
     ClosePopupComponent,
     ExcelExportComponent,
     UserComponent,
@@ -57,14 +50,12 @@ import { UserService } from './services/user.service';
 
   ],
 
-
   imports: [
 
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     BreadcrumbModule,
     FlexLayoutModule,
    
-
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
@@ -73,8 +64,6 @@ import { UserService } from './services/user.service';
     ReactiveFormsModule,
  
  
-
-    
     RouterModule.forRoot([
     { path: '', component: HomeComponent, pathMatch: 'full' },
 ], { relativeLinkResolution: 'legacy' }),

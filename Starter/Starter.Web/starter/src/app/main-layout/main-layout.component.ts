@@ -4,12 +4,6 @@ import { MAT_MENU_DEFAULT_OPTIONS } from '@angular/material/menu';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
-
-
-
-
-
-
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
