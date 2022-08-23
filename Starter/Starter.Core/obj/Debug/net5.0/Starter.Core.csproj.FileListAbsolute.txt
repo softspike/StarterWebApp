@@ -14,5 +14,5 @@ C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\obj\Debug\net5.0\St
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\obj\Debug\net5.0\Starter.Core.pdb
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\obj\Debug\net5.0\Starter.Core.genruntimeconfig.cache
 C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\obj\Debug\net5.0\ref\Starter.Core.dll
-C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\bin\Debug\net5.0\ref\Starter.Core.dll
-C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\obj\Debug\net5.0\Starter.Core.csprojAssemblyReference.cache
+C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\obj\Debug\net5.0\Starter.Core.csproj.AssemblyReference.cache
+C:\starterapp_solution_v1\StarterWebApp\Starter\Starter.Core\obj\Debug\net5.0\refint\Starter.Core.dll
