@@ -14,4 +14,7 @@ export class UserService {
 registerUser(request: UserModel){
 return this.http.post<any>(this.apiUrl, request)
 }
+
 }
+
+

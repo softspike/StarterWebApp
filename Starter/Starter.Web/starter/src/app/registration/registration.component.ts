@@ -35,7 +35,6 @@ export class RegistrationComponent implements OnInit {
         fullName: [null, [Validators.required]],
         password: [null, [Validators.required, Validators.pattern('[A-Za-z0-9()\'+;:=?!%&amp;&lt;&gt;*/ ,.\-]{3,20}')]],
       })
-
   }
 
   create() {
@@ -56,3 +55,5 @@ export class RegistrationComponent implements OnInit {
     });
   }
 }
+
+

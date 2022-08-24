@@ -33,6 +33,7 @@ namespace Starter.Web.Api.Dynamic
                 UserName = model.UserName,
                 Email = model.Email,
                 FullName = model.FullName,
+         
             };
 
             var result = await _userManager.CreateAsync(applicationUser, model.Password);
@@ -43,9 +44,6 @@ namespace Starter.Web.Api.Dynamic
             }
 
             return BadRequest(result);
-            
-            
-
         }
 
     }
