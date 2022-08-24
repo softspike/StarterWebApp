@@ -4,9 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {latLng, tileLayer, marker, LayerGroup, Map, LeafletMouseEvent, icon} from 'leaflet';
 import { debounceTime, finalize, takeWhile } from 'rxjs/operators';
 import { FreeAgencyService } from 'src/app/services/free-agency.service';
-import { GenericValidator } from 'src/app/services/generic-validator.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { ThrobberService } from 'src/app/services/throbber.service';
 import { autoCompleteSelected } from 'src/app/validators/autocomplete-selected.validator';
 import { merge as observableMerge, fromEvent as observableFromEvent, Observable } from 'rxjs';
 import { DialogHelperService } from 'src/app/services/dialog-helper.service';
@@ -22,7 +20,6 @@ export class AgencyButtonComponent implements OnInit, AfterViewInit {
   formInputElements: ElementRef[];
   model: AgencyResponse;
   editForm: FormGroup;
-  genericValidator: GenericValidator;
   displayMessage: { [key: string]: string } = {};
   validationMessages: { [key: string]: { [key: string]: string } };
   id: number;
@@ -55,7 +52,7 @@ export class AgencyButtonComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private freeAgencyService: FreeAgencyService,
-    private throbberService: ThrobberService,
+
     private snackBarService: SnackbarService,
     private dialogRef: MatDialogRef<AgencyButtonComponent>,
     private dialogHelperService: DialogHelperService,
@@ -87,8 +84,6 @@ export class AgencyButtonComponent implements OnInit, AfterViewInit {
        const lat =  this.editForm.get('lat').value !== undefined ? this.editForm.get('lat').value : 0;
        const long = this.editForm.get('long').value !== undefined ? this.editForm.get('long').value : 0;
        this.dropMarker(lat, long);
-
-        this.displayMessage = this.genericValidator.processMessages(this.editForm);
       });
   }
 
@@ -125,11 +120,6 @@ export class AgencyButtonComponent implements OnInit, AfterViewInit {
   getAgency() {
     this.freeAgencyService.get(this.id)
       .pipe(takeWhile(() => this.alive),
-        finalize(() => { this.throbberService.unblock(); }))
-      .subscribe((response: any) => {
-        this.model = response;
-        this.patchForm();
-      },
     );
   }
 
@@ -170,7 +160,6 @@ export class AgencyButtonComponent implements OnInit, AfterViewInit {
 
     };
 
-    this.genericValidator = new GenericValidator(this.validationMessages);
   }
 
   // save() {

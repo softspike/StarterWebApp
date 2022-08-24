@@ -9,12 +9,14 @@ namespace Starter.Data.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        //  [Column(TypeName = "nvarchar(150)")]
+        //public string UserName { get; set; }
+
+        //public string Email { get; set; }
+
+        //public string Password { get; set; }
+
         public string FullName { get; set; }
-
-
-
-
-
     }
 }
+
+
