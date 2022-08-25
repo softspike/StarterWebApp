@@ -14,7 +14,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 export class AgencyTableComponent implements OnInit, OnDestroy {
   response: any;
   searchText = "";
-  displayedColumns = ['buttons', 'name', 'location', 'postCode','latitude', 'longitude', 'ageGroup', 'type', 'invite', 'delete'];
+  displayedColumns = ['buttons', 'name', 'location', 'postCode','latitude', 'longitude', 'ageGroup', 'tournamentType', 'invite', 'delete'];
   private alive = true;
   isMobile = false;
   totalRecords: any;
@@ -54,6 +54,10 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
         this.getList();
       });
   }
+
+
+
+
 
 //   add() {
 //     const dialogRef = this.dialog.open(AgencyButtonComponent);
