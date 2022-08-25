@@ -11,7 +11,9 @@ namespace Starter.Data.Models
 
         public int CountryId { get; set; }
 
-       // public string Name { get; set; }
+        public bool TournamentTypeId { get; set; }
+
+        // public string Name { get; set; }
 
         public string AgeGroup { get; set; }
 

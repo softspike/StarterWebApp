@@ -1,4 +1,5 @@
 ﻿
+using Starter.Data.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
@@ -20,8 +21,11 @@ namespace Starter.Data.Entities
 
         public string AgeGroup { get; set; }
 
-        public int TournamentTypeId { get; set; }
+        public TournamentTypeEnum TournamentTypeId { get; set; }
 
-        [ForeignKey("CountryId")] public Country Country { get; set; }
+        [ForeignKey("CountryId")] 
+        public Country Country { get; set; }
     }
 }
+
+

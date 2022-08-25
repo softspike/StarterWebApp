@@ -1,4 +1,5 @@
 ﻿
+using Starter.Data.Enums;
 using Starter.Data.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,8 +12,6 @@ namespace Starter.Data.Entities
 
         public string Name { get; set; }
 
-        public ListItem Country { get; set; }
-
         public string PostCode { get; set; }
 
         public double Latitude { get; set; }
@@ -21,7 +20,9 @@ namespace Starter.Data.Entities
 
         public string AgeGroup { get; set; }
 
-        //public ListItem TournamentType { get; set; }
+        public ListItem Country { get; set; }
+
+        public TournamentTypeEnum TournamentTypeId { get; set; }
 
     }
 }

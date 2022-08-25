@@ -23,6 +23,8 @@ export class FreeAgencyService {
     return this.http.get<any>(url);
   }
 
+
+  
   // upsert(request: any): Observable<any> {
   //   if (request.id) {
   //     return this.update(request);
@@ -41,16 +43,7 @@ export class FreeAgencyService {
   //   return this.http.post<any>(url, request);
   // }
 
-  // getPod() {
-  //   const url = `${this.apiUrl}/pod`;
-  //   return this.http.get<ListItemColour[]>(url)
-  //     .pipe(
-  //       tap((data: ListItemColour[]) => {
-  //         for (let i = 0; i < data.length; i++) {
-  //           data[i].selected = true;
-  //         }
-  //       }));
-  // }
+
     
 
 

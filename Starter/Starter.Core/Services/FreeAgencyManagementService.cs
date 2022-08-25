@@ -11,7 +11,6 @@ namespace Starter.Core.Services
     public interface IFreeAgencyManagementService
     {
         Task<Country> Get(int id);
-
         Task<List<FreeAgencyModel>> GetList();
     }
 
@@ -19,8 +18,7 @@ namespace Starter.Core.Services
     {
         private StarterDbContext _context;
         public FreeAgencyManagementService(StarterDbContext context)
-        {
-           // _context = new StarterDbContext(new DbContextOptions<StarterDbContext>());
+        { 
 
            _context = context;
         }

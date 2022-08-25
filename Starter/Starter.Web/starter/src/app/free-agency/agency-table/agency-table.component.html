@@ -58,12 +58,10 @@
             <mat-cell *matCellDef="let row">{{row.ageGroup}}</mat-cell>
           </ng-container>
     
-          <ng-container matColumnDef="type">
+          <ng-container matColumnDef="tournamentType">
             <mat-header-cell mat-sort-header *matHeaderCellDef>Tournament Type</mat-header-cell>
             <mat-cell *matCellDef="let row">
-              <span *ngIf="row.isSea">Male</span>
-              <span *ngIf="row.isAir && row.isSea"> / </span>
-              <span *ngIf="row.isAir">Female</span>
+              <span >{{row.tournamentTypeId == 1 ? 'Male' : 'Female'}}</span>
             </mat-cell>
           </ng-container>
 
