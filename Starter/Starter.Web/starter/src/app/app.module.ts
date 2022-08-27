@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +26,8 @@ import { ExcelExportComponent } from './common/excel-export/excel-export.compone
 import { UserComponent } from './user-types/user/user.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserService } from './services/user.service';
+import { LoginComponent } from './login/login.component';
+import { AuthInterceptor } from './common/auth.interceptor';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import { UserService } from './services/user.service';
     ExcelExportComponent,
     UserComponent,
     RegistrationComponent,
+    LoginComponent,
 
 
   ],
@@ -71,9 +74,12 @@ import { UserService } from './services/user.service';
   ],
 
   providers: [
-    UserService
-
-  ],
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   
   bootstrap: [AppComponent]
 

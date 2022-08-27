@@ -9,8 +9,11 @@ export class AgencyResponse {
   }
 
   export class UserModel {
+    id: string;
     userName: string;
     email: string;
     fullName: string;
-    password: string;
+    isPlayer: boolean;
+    isCaptain: boolean;
+    token: string;
    }

@@ -1,4 +1,8 @@
+import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   
+  currentUser : any;
   
-  
-  constructor() { }
+  constructor(private authenticationService: AuthenticationService
+  ) { }
 
   ngOnInit() {
+    this.currentUser = this.authenticationService.currentUserValue;
+
   }
 }

@@ -11,7 +11,9 @@ namespace Starter.Web.Api.Dynamic
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class FreeAgencyController : Controller
+
+
+    public class FreeAgencyController : ControllerBase
     {
         private readonly IFreeAgencyManagementService _freeAgencyManagementService;
 

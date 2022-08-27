@@ -13,7 +13,7 @@
         <div class="spacer"></div>
         <div>
             <div class="m-t-20">
-                <button mat-raised-button class="w100 m-b-10" color="warn" type="button" (click)="Logout()">Logout</button>
+                <button mat-raised-button class="w100 m-b-10" color="warn" type="button" (click)="onLogout()">Logout</button>
               </div>
         </div> 
     </mat-toolbar-row>
@@ -26,7 +26,7 @@
 
     <mat-list-item >
         <mat-icon>home</mat-icon>
-        <a class="m-l-10" [routerLink]="['home']" style="text-decoration: none;" routerLinkActive="selected">Home</a>
+        <a class="m-l-10" [routerLink]="['']" style="text-decoration: none;" routerLinkActive="selected">Home</a>
     </mat-list-item>
 
     <mat-list-item >
@@ -34,12 +34,12 @@
         <a class="m-l-10" [routerLink]="['agency/table']" routerLinkActive="selected">Free Agency</a>
     </mat-list-item>
 
-    <mat-list-item >
+    <mat-list-item *ngIf="isCaptain">
         <mat-icon>perm_identity</mat-icon>
         <a class="m-l-10" [routerLink]="['user-types/captain-page']" routerLinkActive="selected">Captain User</a>
     </mat-list-item>
 
-    <mat-list-item >
+    <mat-list-item *ngIf="isPlayer">
         <mat-icon>how_to_reg</mat-icon>
         <a class="m-l-10" [routerLink]="['user-types/player-page']" routerLinkActive="selected">Player User</a>
     </mat-list-item>
@@ -48,8 +48,10 @@
     </mat-sidenav>
 <mat-sidenav-content class="page-wrapper">
     <div class="page-content">
-        <app-bread-crumbs></app-bread-crumbs>
-            <router-outlet></router-outlet>
+        <!-- <app-bread-crumbs></app-bread-crumbs> -->
+
+        <router-outlet></router-outlet>
+            
     </div>
     
 </mat-sidenav-content>

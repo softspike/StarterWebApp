@@ -1,3 +1,20 @@
-<h1>home page</h1>
+<app-bread-crumbs></app-bread-crumbs>
+
+
+<mat-card>
+    <mat-card-header>Login Details</mat-card-header>
+    <mat-card-content>
+        <div *ngIf="currentUser">
+            <mat-label>userName</mat-label>
+            {{currentUser.userName}}
+           <mat-label>email</mat-label>
+            {{currentUser.email}}
+           <mat-label>fullName</mat-label>
+            {{currentUser.fullName}}
+        </div>
+       
+    </mat-card-content>
+</mat-card>
+
 
 <img class="m-r-10" src="assets/images/trophy.svg" [routerLink]="['/home']">

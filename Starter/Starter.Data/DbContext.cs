@@ -39,23 +39,25 @@ namespace Starter.Data
         //  public virtual DbSet<Port> Port { get; set; }
 
         public virtual DbSet<Country> Country { get; set; }
-        public virtual DbSet<TournamentType> TournamentType { get; set; }
+        //public virtual DbSet<TournamentType> TournamentType { get; set; }
         public virtual DbSet<FreeAgency> FreeAgency { get; set; }
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+        public virtual DbSet<Roles> Roles { get; set; }
+
+        public virtual DbSet<UserRoles> UserRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            //SetUpFks(builder);
+            SetUpPks(builder);
         }
 
-        private static void SetUpFks(ModelBuilder builder)
+        private static void SetUpPks(ModelBuilder builder)
         {
-            //builder.Entity<FreeAgency>()
-            //    .HasOne(e => e.Country)
-            //    .WithOne()
-            //    .HasForeignKey<Country>();
+            builder.Entity<UserRoles>()
+                .HasKey(a => new { a.RoleId, a.UserId });
         }
 
 
