@@ -19,15 +19,12 @@ namespace Starter.Core.Services
         private StarterDbContext _context;
         public FreeAgencyManagementService(StarterDbContext context)
         { 
-
            _context = context;
         }
 
         public async Task<Country> Get(int id)
         {
-
             var country = await _context.Country.FirstOrDefaultAsync(a => a.Id == id);
-   
             return country;
         }
 
@@ -36,10 +33,8 @@ namespace Starter.Core.Services
         {
 
            var query = await _context.FreeAgency.Include(a => a.Country).ToListAsync();
-
-            var mapped = query.Select(a => AutoMapper.Mapper.Map<FreeAgencyModel>(a)).ToList();
-          
-            return mapped;
+           var mapped = query.Select(a => AutoMapper.Mapper.Map<FreeAgencyModel>(a)).ToList();
+           return mapped;
         }
 }
 

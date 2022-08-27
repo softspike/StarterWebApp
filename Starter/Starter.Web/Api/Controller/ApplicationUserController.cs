@@ -1,8 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using Starter.Data;
 using Starter.Data.Models;
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Starter.Web.Api.Dynamic
@@ -12,14 +20,18 @@ namespace Starter.Web.Api.Dynamic
     public class ApplicationUserController : ControllerBase
     {
         private UserManager<ApplicationUser> _userManager;
-
         private SignInManager<ApplicationUser> _signInManager;
+        private readonly ApplicationSettings _appSettings;
+        private StarterDbContext _context;
 
         public ApplicationUserController(UserManager<ApplicationUser> userManager,
-                                         SignInManager<ApplicationUser> signInManager)
+              SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings, 
+              StarterDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _appSettings = appSettings.Value;
+            _context = context;
         }
 
         [HttpPost]
@@ -44,6 +56,52 @@ namespace Starter.Web.Api.Dynamic
             }
 
             return BadRequest(result);
+        }
+
+
+
+        [HttpPost]
+        [Route("Login")]
+        //POST : /api/ApplicationUser/Login
+        //authenticated user with Jwt
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            var user = await _userManager.FindByNameAsync(model.UserName);
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            {
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(new Claim[]
+                    {
+                        new Claim("UserID", user.Id.ToString())
+                    }),
+                    Expires = DateTime.UtcNow.AddDays(52),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)),
+                        SecurityAlgorithms.HmacSha256Signature)
+                };
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+                var token = tokenHandler.WriteToken(securityToken);
+
+                var userRolesIds = await _context.UserRoles.Where(a => a.UserId == user.Id).Select(a => a.RoleId).ToListAsync();
+
+                var roles = await _context.Roles.Where(a => userRolesIds.Contains(a.Id)).ToListAsync();
+
+                return Ok(new 
+                {
+                   Id = user.Id,
+                   UserName = user.UserName,
+                   Email = user.Email,
+                   FullName = user.FullName,
+                   isPlayer = roles.Any(a => a.Code == "PLAYER"),
+                   isCaptain = roles.Any(a => a.Code == "CAPTAIN"),
+                   Token = token
+
+            });
+            }
+            else
+                return BadRequest(new { message = "incorrect credentials" });
         }
 
     }

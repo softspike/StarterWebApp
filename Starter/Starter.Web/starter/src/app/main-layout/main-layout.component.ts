@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MAT_MENU_DEFAULT_OPTIONS } from '@angular/material/menu';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -11,12 +13,13 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class MainLayoutComponent implements OnInit {
   mobileQuery: MediaQueryList;
+  isPlayer = false;
+  isCaptain = false;
 
   constructor(
-    private titleService: Title,
-    private router: Router,
-    private activePage: ActivatedRoute,
-    private media : MediaMatcher
+    private media : MediaMatcher,
+    private authenticationService: AuthenticationService,
+    private userService : UserService
   ) {
     
 
@@ -24,10 +27,16 @@ export class MainLayoutComponent implements OnInit {
   }
 
 
-
-
-
   ngOnInit() {
+    this.isPlayer = this.userService.getFromLS().isPlayer;
+    this.isCaptain = this.userService.getFromLS().isCaptain;
+    console.log(this.userService.getFromLS())
+    console.log(this.isCaptain)
+  }
+
+  onLogout(){
+      this.authenticationService.logout();
+    
   }
   
 
