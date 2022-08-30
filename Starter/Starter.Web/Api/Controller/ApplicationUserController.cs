@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Starter.Data;
+using Starter.Data.Entities;
 using Starter.Data.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -52,7 +53,17 @@ namespace Starter.Web.Api.Dynamic
 
             if (result.Succeeded)
             {
+                var user = await _userManager.FindByNameAsync(model.UserName);
+                var role = new UserRoles()
+                {
+                    RoleId = 1,
+                    UserId = user.Id
+                };
+                _context.UserRoles.Add(role);
+                await _context.SaveChangesAsync();
+
                 return Ok(result);
+
             }
 
             return BadRequest(result);
@@ -67,6 +78,11 @@ namespace Starter.Web.Api.Dynamic
         public async Task<IActionResult> Login(LoginModel model)
         {
             var user = await _userManager.FindByNameAsync(model.UserName);
+
+            if (user.isDeleted)
+            {
+                return BadRequest(new { message = "User Deleted" });
+            }
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var tokenDescriptor = new SecurityTokenDescriptor
@@ -102,6 +118,25 @@ namespace Starter.Web.Api.Dynamic
             }
             else
                 return BadRequest(new { message = "incorrect credentials" });
+        }
+
+
+        [HttpPost]
+        [Route("Delete")]
+        //POST : /api/ApplicationUser/Register
+        public async Task<IActionResult> DeleteApplicationUser([FromBody] IdStringModel model)
+        {
+
+            var user = await _context.ApplicationUsers.FirstOrDefaultAsync(a => a.Id == model.Id);
+
+            user.isDeleted = true;
+
+            _context.ApplicationUsers.Update(user);
+            await _context.SaveChangesAsync();
+
+           return Ok(user);
+
+  
         }
 
     }

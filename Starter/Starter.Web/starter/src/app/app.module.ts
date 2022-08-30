@@ -28,6 +28,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UserService } from './services/user.service';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './common/auth.interceptor';
+import { SubmitUserComponent } from './free-agency/submit-user/submit-user.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { AuthInterceptor } from './common/auth.interceptor';
     UserComponent,
     RegistrationComponent,
     LoginComponent,
+    SubmitUserComponent,
 
 
   ],
@@ -65,6 +67,7 @@ import { AuthInterceptor } from './common/auth.interceptor';
     MaterialModule,
     NgxScreenfullModule,
     ReactiveFormsModule,
+    
  
  
     RouterModule.forRoot([

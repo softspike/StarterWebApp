@@ -69,9 +69,12 @@
           <ng-container matColumnDef="invite">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">
-              <button color="accent" (click)="edit(row)" class="mat-elevation-z1" mat-mini-fab matTooltip="Invite Entry">
-                <mat-icon>person_add</mat-icon>
-              </button>
+              <div *ngIf="isCaptain">
+                <button color="accent" (click)="invite(row)" class="mat-elevation-z1" mat-mini-fab matTooltip="Invite Entry">
+                  <mat-icon>person_add</mat-icon>
+                </button>
+              </div>
+             
             </mat-cell>
           </ng-container>
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UserModel } from '../models/models.model';
+import { IdStringModel, UserModel } from '../models/models.model';
 
 
 @Injectable({ providedIn: 'root' })
@@ -43,4 +43,9 @@ export class AuthenticationService {
 location.reload()
 
     }
+
+    deleteUser(request: IdStringModel): Observable<any> {
+        const url = `${this.apiUrl}/delete`;
+        return this.http.post<IdStringModel>(url, request);
+      }
 }
