@@ -19,26 +19,20 @@ export const appRoutes: Routes = [
      children:
      [ { path: '', component: HomeComponent,  data: { title: 'StarterApp | Dashboard', breadcrumb: 'Dashboard > Home' }},
        { path: 'agency/table', component: AgencyTableComponent, data: { title: 'StarterApp | Agency Table', breadcrumb: 'Dashboard > Free Agency' },},
+       { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'StarterApp | Dashboard', breadcrumb: 'Dashboard > Home' }},
+       { path: 'tournament/list', component: TournamentListComponent, data: { title: 'StarterApp | All Tournaments', breadcrumb: 'Dashboard > All Tournaments' },},
+       { path: 'dashboard/agency/table', component: AgencyTableComponent, data: { title: 'StarterApp | Agency Table', breadcrumb: 'Dashboard > Free Agency' },},
+       { path: 'user-types/captain-page', component: CaptainPageComponent, data: { title: 'StarterApp | Captain', breadcrumb: 'Dashboard > Captain Page' },},
+       { path: 'user-types/player-page', component: PlayerPageComponent, canActivate:[AuthGuard], data:{ title: 'StarterApp | Player', breadcrumb: 'Dashboard > Player Page' },},
+       { path: 'user', component: UserComponent, data: { title: 'StarterApp | User'},},
+       { path: '**', component: PageNotFoundComponent, data: { title: 'StarterApp | 404' }, },
+
     ]
     
     },
 
-    //  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'StarterApp | Dashboard', breadcrumb: 'Dashboard > Home' }},
-
-    // // { path: 'tournament/list', component: TournamentListComponent, data: { title: 'StarterApp | All Tournaments', breadcrumb: 'Dashboard > All Tournaments' },},
-
-    //  { path: 'dashboard/agency/table', component: AgencyTableComponent, data: { title: 'StarterApp | Agency Table', breadcrumb: 'Dashboard > Free Agency' },},
-
-    // // { path: 'user-types/captain-page', component: CaptainPageComponent, data: { title: 'StarterApp | Captain', breadcrumb: 'Dashboard > Captain Page' },},
-
-    // // { path: 'user-types/player-page', component: PlayerPageComponent, canActivate:[AuthGuard], data:{ title: 'StarterApp | Player', breadcrumb: 'Dashboard > Player Page' },},
-
-    // // { path: 'user', component: UserComponent, data: { title: 'StarterApp | User'},},
-
-    // // { path: 'user/registration', component: RegistrationComponent, data: { title: 'StarterApp | Registration'},},
+     { path: 'user/registration', component: RegistrationComponent, data: { title: 'StarterApp | Registration'},},
 
      { path: 'user/login', component: LoginComponent, data: { title: 'StarterApp | Login'},},
-
-    // // { path: '**', component: PageNotFoundComponent, data: { title: 'StarterApp | 404' }, },
 
 ]

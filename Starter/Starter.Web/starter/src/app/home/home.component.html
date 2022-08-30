@@ -3,18 +3,22 @@
 
 <mat-card>
     <mat-card-header>Login Details</mat-card-header>
-    <mat-card-content>
+    <br>
+    <mat-card-content class="p-l-28">
         <div *ngIf="currentUser">
-            <mat-label>userName</mat-label>
+            <mat-label>User Name:</mat-label>
             {{currentUser.userName}}
-           <mat-label>email</mat-label>
+            <br>
+           <mat-label>Email:</mat-label>
             {{currentUser.email}}
-           <mat-label>fullName</mat-label>
+            <br>
+           <mat-label>Full Name:</mat-label>
             {{currentUser.fullName}}
+            <br>
         </div>
        
     </mat-card-content>
 </mat-card>
 
 
-<img class="m-r-10" src="assets/images/trophy.svg" [routerLink]="['/home']">
+
