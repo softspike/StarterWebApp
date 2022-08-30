@@ -8,7 +8,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { autoCompleteSelected } from 'src/app/validators/autocomplete-selected.validator';
 import { merge as observableMerge, fromEvent as observableFromEvent, Observable } from 'rxjs';
 import { DialogHelperService } from 'src/app/services/dialog-helper.service';
-import { AgencyResponse } from 'src/app/models/models.model';
+
 
 @Component({
   selector: 'app-agency-button',
@@ -18,7 +18,7 @@ import { AgencyResponse } from 'src/app/models/models.model';
 export class AgencyButtonComponent implements OnInit, AfterViewInit {
   @ViewChildren (FormControlName, { read: ElementRef })
   formInputElements: ElementRef[];
-  model: AgencyResponse;
+  model: any;
   editForm: FormGroup;
   displayMessage: { [key: string]: string } = {};
   validationMessages: { [key: string]: { [key: string]: string } };

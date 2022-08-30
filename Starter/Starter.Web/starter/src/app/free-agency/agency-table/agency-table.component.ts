@@ -5,6 +5,9 @@ import { AgencyButtonComponent } from '../agency-button/agency-button.component'
 import { takeWhile } from 'rxjs/operators';
 import { ResponsiveService } from 'src/app/services/responsive.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { SubmitUserComponent } from '../submit-user/submit-user.component';
+import { UserService } from 'src/app/services/user.service';
+import { InvitationRequest } from 'src/app/models/models.model';
 
 @Component({
   selector: 'app-agency-table',
@@ -18,12 +21,14 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
   private alive = true;
   isMobile = false;
   totalRecords: any;
+  isCaptain = false;
   
 
   constructor( private freeAgencyService: FreeAgencyService,
                private responsiveService: ResponsiveService,
                private snackBarService: SnackbarService,
-               public dialog: MatDialog) { 
+               public dialog: MatDialog,
+               public service: UserService) { 
 
                 if (this.responsiveService.isMobile) {
                   this.isMobile = true;
@@ -32,6 +37,7 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
                }
 
   ngOnInit(){
+    this.isCaptain = this.service.getFromLS().isCaptain;
     this.getList();
   }
 
@@ -59,15 +65,35 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
 
 
 
-//   add() {
-//     const dialogRef = this.dialog.open(AgencyButtonComponent);
+  add() {
+    const dialogRef = this.dialog.open(SubmitUserComponent);
 
-//     dialogRef.afterClosed()
-//       .pipe(takeWhile(() => this.alive))
-//       .subscribe(() => {
-//         this.getList();
-//       });
-//   }
+    dialogRef.afterClosed()
+      .pipe(takeWhile(() => this.alive))
+      .subscribe(() => {
+        this.getList();
+      });
+  }
+
+  invite(row: any){
+    let request = new InvitationRequest;
+    request.captainId = this.service.getFromLS().id;
+    request.playerId = row.playerId;
+
+    this.freeAgencyService.createnvitation(request)
+      .pipe(takeWhile(() => this.alive))
+      .subscribe((response: any) => {
+        if(response){
+          this.snackBarService.show('Player Invited');
+        }
+      }
+    ,
+    (error: any) => {
+      this.snackBarService.show('Server Error');
+    });
+
+
+  }
 
 //   search() {
 //     this.paginator.pageIndex = 0;

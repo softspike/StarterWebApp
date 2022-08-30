@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
+import {  MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTooltipModule,
     MatMenuModule,
     MatTabsModule,
+    MatRadioModule,
     
     
   ],
@@ -69,6 +71,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTooltipModule,
     MatMenuModule,
     MatTabsModule,
+    MatRadioModule,
     
   ],
 

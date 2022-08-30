@@ -1,0 +1,138 @@
+<!-- <close-popup></close-popup> -->
+<!--
+<div>
+    <form 
+          [formGroup]="editForm">
+ 
+        <mat-form-field>
+        <input formControlName="id" class="hidden" >
+    </mat-form-field>
+
+     <mat-form-field>
+        <input formControlName="playerId" class="hidden" >
+    </mat-form-field>
+
+        <mat-form-field>
+        <input formControlName="name" class="hidden">
+    </mat-form-field>
+
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Post Code" formControlName="postCode">
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Latitude" formControlName="latitude">
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Longitude" formControlName="longitude">
+              </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Age Group" formControlName="ageGroup">
+              </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Country" formControlName="country">
+              </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Tournament Type" formControlName="tournamentTypeId">
+              </mat-form-field>
+        </div>
+   
+      </div>
+    
+    </form>
+-->
+
+ 
+
+    <form [formGroup]="editForm">
+
+        <mat-form-field class="hidden">
+
+            <input matInput formControlName="id" >
+      
+        </mat-form-field>  
+
+        <mat-form-field class="hidden">
+          <input matInput formControlName="playerId" >
+      </mat-form-field>    
+
+      <mat-form-field class="example-full-width">
+        <mat-label>name</mat-label>
+        <input matInput [readonly]="'true'" placeholder="name" formControlName="name">
+    </mat-form-field>    
+
+    <mat-form-field class="example-full-width">
+      <mat-label>postCode</mat-label>
+      <input matInput placeholder="postCode" formControlName="postCode">
+      <mat-error *ngIf="editForm.get('postCode').hasError('required')">Required</mat-error>
+  </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>latitude</mat-label>
+      <input matInput placeholder="latitude" formControlName="latitude">
+      <mat-error *ngIf="editForm.get('latitude').hasError('required')">Required</mat-error>
+  </mat-form-field>    
+
+  
+  <mat-form-field class="example-full-width">
+    <mat-label>longitude</mat-label>
+    <input matInput placeholder="longitude" formControlName="longitude">
+    <mat-error *ngIf="editForm.get('longitude').hasError('required')">Required</mat-error>
+</mat-form-field>    
+
+
+
+<mat-form-field class="example-full-width">
+  <mat-label>ageGroup</mat-label>
+  <input matInput placeholder="ageGroup" formControlName="ageGroup">
+  <mat-error *ngIf="editForm.get('ageGroup').hasError('required')">Required</mat-error>
+</mat-form-field>  
+
+<!-- <mat-form-field class="example-full-width">
+  <mat-label>tournamentTypeId</mat-label>
+
+  <mat-select [(value)]="selectedType" (selectionChange)="onChange($event)">
+    <mat-option [value]="type.value" *ngFor = "let type of tournamentTypeSelector">{{type.name}}</mat-option>
+  </mat-select>
+</mat-form-field>  
+         -->
+
+
+
+
+
+  <mat-radio-group  formControlName="tournamentTypeId" (selectionChange)="onChange($event)">
+
+    <legend>tournamentTypeId</legend>
+
+    <mat-radio-button [value]="1" >Male</mat-radio-button>
+
+    <mat-radio-button [value]="2">Female</mat-radio-button>
+
+  </mat-radio-group>
+
+
+  
+
+
+
+
+
+    </form>
+  
+
+    <div class="m-t-20">
+      <button mat-raised-button class="w100 m-b-10" color="primary" type="button" (click)="save()">Save</button>
+    </div>

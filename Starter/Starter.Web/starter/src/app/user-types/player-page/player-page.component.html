@@ -1,1 +1,48 @@
-<p>player-page works!</p>
+<app-bread-crumbs></app-bread-crumbs>
+<mat-card>
+    <div>
+        <mat-table matSort class="mat-elevation-z8" [dataSource]="response">
+         
+
+          <ng-container matColumnDef="capitanName">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Captain Name</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.captain.fullName}}</mat-cell>
+          </ng-container>
+
+    
+          <ng-container matColumnDef="approve">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Approve</mat-header-cell>
+            <mat-cell *matCellDef="let row"> 
+                <div *ngIf="!row.accepted && !row.rejected">
+                    <button color="warn" (click)="approve(row)" class="mat-elevation-z1" mat-mini-fab >
+                        <mat-icon>approve</mat-icon>
+                      </button>
+                </div>
+                <div *ngIf="row.accepted">
+Accepted
+                </div>
+                
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="reject">
+            <mat-header-cell mat-sort-header *matHeaderCellDef>Reject</mat-header-cell>
+            <mat-cell *matCellDef="let row"> 
+                <div *ngIf="!row.accepted && !row.rejected">
+                    <button color="warn" (click)="reject(row)" class="mat-elevation-z1" mat-mini-fab >
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                </div>
+                 
+            </mat-cell>
+          </ng-container>
+
+
+       
+          <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+
+    <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 20]" showFirsLastButtons></mat-paginator>
+  </div>
+</mat-card>

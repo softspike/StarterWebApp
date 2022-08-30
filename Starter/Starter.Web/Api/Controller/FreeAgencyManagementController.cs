@@ -51,5 +51,42 @@ namespace Starter.Web.Api.Dynamic
             return File(res, "application/octet-stream", $"Starter.xlsx");
         }
 
+        [HttpGet("get-invitations")]
+        public async Task<List<Invitations>> GetOpenInvitation(string playerId)
+        {
+            var res = await _freeAgencyManagementService.GetOpenInvitation(playerId);
+            return res;
+        }
+
+        [HttpPost("create-invitation")]
+        public async Task<IActionResult> CreateInvitation([FromBody]InvitationRequest request)
+        {
+            var res = await _freeAgencyManagementService.CreateInvitation(request);
+            return Ok(res);
+        }
+
+        [HttpPost("accept-invitation")]
+        public async Task<IActionResult> AcceptInvitation([FromBody] IdModel request)
+        {
+            var res = await _freeAgencyManagementService.AcceptInvitation(request.Id);
+            return Ok(res);
+        }
+
+        [HttpPost("reject-invitation")]
+        public async Task<IActionResult> RejecttInvitation([FromBody] IdModel request)
+        {
+            var res = await _freeAgencyManagementService.RejectInvitation(request.Id);
+            return Ok(res);
+        }
+
+        [HttpPost("submit-user")]
+        public async Task<IActionResult> CreateSubmitUserInvitation([FromBody] FreeAgencyModel request)
+        {
+            var res = await _freeAgencyManagementService.SubmitUser(request);
+            return Ok(res);
+        }
+
+
+
     }
 }

@@ -19,6 +19,8 @@ namespace Starter.Data.Models
 
         //public string Token { get; set; }
 
+        public bool isDeleted { get; set; }
+
     }
 }
 

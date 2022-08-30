@@ -1,5 +1,6 @@
 ﻿
 using Starter.Data.Enums;
+using Starter.Data.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
@@ -9,7 +10,7 @@ namespace Starter.Data.Entities
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string PlayerId { get; set; }
 
         public int CountryId { get; set; }
 
@@ -25,6 +26,9 @@ namespace Starter.Data.Entities
 
         [ForeignKey("CountryId")] 
         public Country Country { get; set; }
+
+        [ForeignKey("PlayerId")]
+        public ApplicationUser Player { get; set; }
     }
 }
 
