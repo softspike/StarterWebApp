@@ -10,3 +10,15 @@ Starter/Starter.Web/starter/src/app/appStructure.txt
 *.cache
 
 Starter/Starter.Core/bin/Debug/net5.0/Starter.Core.dll
+
+*.v1
+
+Starter/Starter.Core/bin/Debug/net5.0/
+
+Starter/Starter.Core/obj/Debug/net5.0/
+
+*.dll
+
+Starter/Starter.Data/obj/Debug/net5.0/
+
+Starter/Starter.Data/bin/Debug/net5.0/
