@@ -15,17 +15,6 @@ registerUser(request: UserModel){
 return this.http.post<any>(this.apiUrl, request)
 }
 
-// loginUser(request: UserModel){
-//   return this.http.post<any>(this.apiUrl, request)
-//   }
-
-
-// getUserProfile(){
-//  // var tokenHeader = new HttpHeaders({'Authorization':'Bearer'+localStorage.getItem('token')})
-//   return this.http.get(this.apiUrl+'UserProfile');
-// }
-
-
 getFromLS(): UserModel {
   const details = localStorage.getItem('currentUser');
   return JSON.parse(details);

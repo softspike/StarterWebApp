@@ -39,7 +39,6 @@ export class FreeAgencyService {
     return this.http.post<FreeAgencyModel>(url, request);
   }
 
-
   getOpenInvitations(playerId: string): Observable<any> {
     const url = `${this.apiUrl}/get-invitations?playerId=${playerId}`;
     return this.http.get<any>(url);
@@ -60,28 +59,5 @@ export class FreeAgencyService {
     return this.http.post<IdModel>(url, request);
   }
 
-  
-  // upsert(request: any): Observable<any> {
-  //   if (request.id) {
-  //     return this.update(request);
-  //   }
-
-  //   return this.add(request);
-  // }
-
-  // // private add(request: any): Observable<any> {
-  // //   const url = `${this.apiUrl}/add`;
-  //   return this.http.post<any>(url, request);
-  // }
-
-  // private update(request: any): Observable<any> {
-  //   const url = `${this.apiUrl}/update`;
-  //   return this.http.post<any>(url, request);
-  // }
-
-
-    
-
-
-  }
+}
 
