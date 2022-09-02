@@ -20,7 +20,6 @@ namespace Starter.Web.Api.Controller
             _userManager = userManager;
         }
 
-
         //To identify a user who made this request
         [HttpGet]
         [Authorize]

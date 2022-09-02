@@ -16,22 +16,9 @@ namespace Starter.Data.Entities
 
         public bool Accepted { get; set; }
 
-
         public bool Rejeted { get; set; }
 
         [ForeignKey("CaptainId")]
         public ApplicationUser Captain { get; set; }
     }
-
-
-
-
-    //[CaptainId] NVARCHAR(250)     NOT NULL,
-
-    //[PlayerId]    NVARCHAR(250)     NOT NULL,
-    //[CreatedDateTime]   DATE NULL,
-
-    //[Accepted]   BIT NULL,
-
-    //[Rejeted]   BIT NULL,
 }

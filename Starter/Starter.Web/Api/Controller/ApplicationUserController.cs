@@ -69,8 +69,6 @@ namespace Starter.Web.Api.Dynamic
             return BadRequest(result);
         }
 
-
-
         [HttpPost]
         [Route("Login")]
         //POST : /api/ApplicationUser/Login

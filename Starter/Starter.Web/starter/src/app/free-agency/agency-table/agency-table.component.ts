@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FreeAgencyService } from 'src/app/services/free-agency.service';
-import { AgencyButtonComponent } from '../agency-button/agency-button.component';
 import { takeWhile } from 'rxjs/operators';
 import { ResponsiveService } from 'src/app/services/responsive.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
@@ -51,8 +50,8 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  edit(row) {
-    const dialogRef = this.dialog.open(AgencyButtonComponent, { data: { model: row } });
+  edit() {
+    const dialogRef = this.dialog.open(SubmitUserComponent);
 
     dialogRef.afterClosed()
       .pipe(takeWhile(() => this.alive))
@@ -60,10 +59,6 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
         this.getList();
       });
   }
-
-
-
-
 
   add() {
     const dialogRef = this.dialog.open(SubmitUserComponent);

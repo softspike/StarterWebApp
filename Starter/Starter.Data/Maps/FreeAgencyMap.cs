@@ -4,22 +4,14 @@ using System.Linq;
 using AutoMapper;
 using System.Threading.Tasks;
 using Starter.Data.Entities;
+using Starter.Data.Models;
 
-namespace Starter.Data.Models
+namespace Starter.Data.Maps
 {
     public class FreeAgencyMap : Profile
     {
         public FreeAgencyMap()
         {
-            CreateMap<FreeAgency, FreeAgencyListItem>()
-                .ForMember(x => x.CountryId, opt => opt.MapFrom(src => src.Country.Name))
-                ;
-
-           CreateMap<FreeAgency, FreeAgencyResponse>()
-                .ForMember(x => x.Long, opt => opt.MapFrom(src => src.Longitude))
-                .ForMember(x => x.Lat, opt => opt.MapFrom(src => src.Latitude))
-                .ForMember(x => x.Name, opt => opt.MapFrom(src => src.Player.FullName))
-                ;
 
             CreateMap<FreeAgencyModel, FreeAgency>()
               .ForMember(x => x.Id, opt => opt.MapFrom(src => src.Id))
