@@ -2,9 +2,9 @@
 <mat-card>
     <div fxLayout="row"> 
         <mat-form-field fxFlex>
-            <input matInput placeholder="Player Name">
+            <input matInput [(ngModel)]="searchText" placeholder="Player Name" [ngModelOptions]="{standalone: true}" (keyup.enter)="getList()">
             <mat-icon (click)="clearSearch()" matSuffix>clear</mat-icon>
-            <mat-icon (click)="search()" matPrefix>search</mat-icon>
+            <mat-icon (click)="getList()" matPrefix>search</mat-icon>
         </mat-form-field>
         
         <!-- cloud button -->

@@ -12,7 +12,7 @@ namespace Starter.Core.Services
     public interface IFreeAgencyManagementService
     {
         Task<Country> Get(int id);
-        Task<List<FreeAgencyModel>> GetList();
+        Task<List<FreeAgencyModel>> GetList(string searchText);
 
         Task<Invitations> CreateInvitation(InvitationRequest model);
         Task<List<Invitations>> GetOpenInvitation(string playerId);
@@ -36,11 +36,17 @@ namespace Starter.Core.Services
         }
 
 
-        public async Task<List<FreeAgencyModel>> GetList()
+        public async Task<List<FreeAgencyModel>> GetList(string searchText)
         {
 
-           var query = await _context.FreeAgency.Include(a => a.Country).Include(a => a.Player).ToListAsync();
-           var mapped = query.Select(a => AutoMapper.Mapper.Map<FreeAgencyModel>(a)).ToList();
+            var query = await _context.FreeAgency.Include(a => a.Country).Include(a => a.Player).ToListAsync();
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                query = query.Where(a => a.Player.FullName.Contains(searchText)).ToList();
+            }
+
+            var mapped = query.Select(a => AutoMapper.Mapper.Map<FreeAgencyModel>(a)).ToList();
            return mapped;
         }
 

@@ -21,6 +21,7 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
   isMobile = false;
   totalRecords: any;
   isCaptain = false;
+
   
 
   constructor( private freeAgencyService: FreeAgencyService,
@@ -41,7 +42,7 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
   }
 
   getList() {
-    this.freeAgencyService.list()
+    this.freeAgencyService.list(this.searchText)
       .pipe(takeWhile(() => this.alive))
       .subscribe((response: any[]) => this.response = response
     ,
@@ -90,16 +91,11 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
 
   }
 
-//   search() {
-//     this.paginator.pageIndex = 0;
-//     this.request.pageNumber = 0;
-//     this.getList();
-// }
 
-//   clearSearch() {
-//     this.request.searchText = "";   
-//     this.search();
-//   }
+  clearSearch() {
+    this.searchText = "";   
+    this.getList();
+  }
 
 // updateServer() {
 //   this.dataUpdateService.update(this.dataRequest)

@@ -36,16 +36,16 @@ namespace Starter.Web.Api.Dynamic
         }
 
         [HttpGet("list")]
-        public async Task<List<FreeAgencyModel>> GetList()
+        public async Task<List<FreeAgencyModel>> GetList(string searchText)
         {
-            var res = await _freeAgencyManagementService.GetList();
+            var res = await _freeAgencyManagementService.GetList(searchText);
             return res;
         }
 
         [HttpGet("export")]
         public async Task<IActionResult> Export()
         {
-            var list = await GetList();
+            var list = await GetList(string.Empty);
             var stream = _excelConvertService.GetExcelNoFormat(list, "Starter Export");
             var res = ((MemoryStream)stream).ToArray();
             return File(res, "application/octet-stream", $"Starter.xlsx");

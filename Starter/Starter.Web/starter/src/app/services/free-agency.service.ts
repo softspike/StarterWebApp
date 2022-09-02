@@ -19,8 +19,8 @@ export class FreeAgencyService {
     return this.http.get<any>(url);
   }
 
-  list(): Observable<any> {
-    const url = `${this.apiUrl}/list`;
+  list(searchText: string): Observable<any> {
+    const url = `${this.apiUrl}/list?searchText=${searchText}`;
     return this.http.get<any>(url);
   }
 
