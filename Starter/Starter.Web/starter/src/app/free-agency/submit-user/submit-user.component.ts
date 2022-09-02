@@ -30,14 +30,23 @@ selectedType = this.tournamentTypeSelector[0].value;
     private freeAgencyService: FreeAgencyService,
     private snackBarService: SnackbarService,
     public service: UserService,
-    public helper: FormHelperService){
-   
+    public helper: FormHelperService,
+    @Inject(MAT_DIALOG_DATA) public data: any){
+   if(data){
+    this.model = data;
+   }
      }
    
 
   ngOnInit() {
     this.buildForm();
-    this.pachForm();
+    if(this.model.id){
+this.pachEditForm();
+    }
+    else{
+      this.pachForm();
+    }
+    
     this.dialogHelperService.sideBar(this.dialogRef, 450);
   }
 
@@ -60,11 +69,11 @@ selectedType = this.tournamentTypeSelector[0].value;
     var currentUser = this.service.getFromLS();
     this.editForm.patchValue({ playerId : currentUser.id});
     this.editForm.patchValue({ name : currentUser.fullName})
-
-    const country = new ListItem(13, 'PW', 'Palau');
-    this.editForm.patchValue({ country : country})
   }
 
+  pachEditForm(){
+    this.editForm.patchValue(this.model);
+  }
   save() {
     if (!this.editForm.valid) {
       return;
@@ -72,18 +81,44 @@ selectedType = this.tournamentTypeSelector[0].value;
 
 this.helper.setModel(this.model, this.editForm);
 
+if(this.model.id){
+this.editUser();
+}
+else{
+this.subbmitUser();
+}
+
+   
+  }
+
+  subbmitUser(){
     this.freeAgencyService.submitUser(this.model)
-      .pipe(takeWhile(() => this.alive))
-      .subscribe((res: any) => {
-        if(res){
-          this.snackBarService.show('Submitted')
-          this.dialogRef.close(res);
-        }
-      
-      },
-        (error: any) => {
-          this.snackBarService.show('Server Error');
-        });
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      if(res){
+        this.snackBarService.show('Submitted')
+        this.dialogRef.close(res);
+      }
+    
+    },
+      (error: any) => {
+        this.snackBarService.show('Server Error');
+      });
+  }
+
+  editUser(){
+    this.freeAgencyService.editUser(this.model)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      if(res){
+        this.snackBarService.show('Submitted')
+        this.dialogRef.close(res);
+      }
+    
+    },
+      (error: any) => {
+        this.snackBarService.show('Server Error');
+      });
   }
 
   mapModel(){
@@ -95,7 +130,7 @@ this.helper.setModel(this.model, this.editForm);
     this.model.latitude = this.editForm.get('latitude').value;
     this.model.longitude = this.editForm.get('longitude').value; 
     this.model.ageGroup = this.editForm.get('ageGroup').value;
-    this.model.country = this.editForm.get('country').value;
+    this.model.country = this.editForm.get('countryId').value;
     this.model.tournamentTypeId = this.editForm.get('tournamentTypeId').value;
     
   }

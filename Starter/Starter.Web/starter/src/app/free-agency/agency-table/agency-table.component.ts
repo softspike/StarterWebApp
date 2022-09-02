@@ -51,8 +51,8 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
     });
   }
 
-  edit() {
-    const dialogRef = this.dialog.open(SubmitUserComponent);
+  edit(row: any) {
+    const dialogRef = this.dialog.open(SubmitUserComponent, {data: row});
 
     dialogRef.afterClosed()
       .pipe(takeWhile(() => this.alive))
@@ -68,6 +68,22 @@ export class AgencyTableComponent implements OnInit, OnDestroy {
       .pipe(takeWhile(() => this.alive))
       .subscribe(() => {
         this.getList();
+      });
+  }
+
+  delete(row: any) {
+    this.freeAgencyService.deleteUser(row)
+    .pipe(takeWhile(() => this.alive))
+    .subscribe((res: any) => {
+      if(res){
+        this.snackBarService.show('User Deleted');
+        this.getList();
+
+      }
+    
+    },
+      (error: any) => {
+        this.snackBarService.show('Server Error');
       });
   }
 

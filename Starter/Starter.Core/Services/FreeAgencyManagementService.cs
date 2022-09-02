@@ -11,7 +11,7 @@ namespace Starter.Core.Services
 {
     public interface IFreeAgencyManagementService
     {
-        Task<Country> Get(int id);
+        Task<FreeAgencyModel> Get(int id);
         Task<List<FreeAgencyModel>> GetList(string searchText);
 
         Task<Invitations> CreateInvitation(InvitationRequest model);
@@ -19,6 +19,7 @@ namespace Starter.Core.Services
         Task<Invitations> AcceptInvitation(int invId);
         Task<Invitations> RejectInvitation(int invId);
         Task<FreeAgency> SubmitUser(FreeAgencyModel model);
+        Task<FreeAgencyModel> EditUser(FreeAgencyModel model);
     }
 
     public class FreeAgencyManagementService : IFreeAgencyManagementService
@@ -29,10 +30,11 @@ namespace Starter.Core.Services
            _context = context;
         }
 
-        public async Task<Country> Get(int id)
+        public async Task<FreeAgencyModel> Get(int id)
         {
-            var country = await _context.Country.FirstOrDefaultAsync(a => a.Id == id);
-            return country;
+            var freeAgency = await _context.FreeAgency.Include(a => a.Country).Include(a => a.Player).FirstOrDefaultAsync(a => a.Id == id);
+            var mapped = AutoMapper.Mapper.Map<FreeAgencyModel>(freeAgency);
+            return mapped;
         }
 
 
@@ -58,6 +60,23 @@ namespace Starter.Core.Services
             await _context.SaveChangesAsync();
             return mapped;
         }
+
+        public async Task<FreeAgencyModel> EditUser(FreeAgencyModel model)
+        {
+
+            var freeAgency = await _context.FreeAgency.FirstOrDefaultAsync(a => a.Id == model.Id);
+
+            AutoMapper.Mapper.Map(model, freeAgency);
+
+            _context.FreeAgency.Update(freeAgency);
+            await _context.SaveChangesAsync();
+
+            var res = await Get(model.Id);
+
+            return res;
+        }
+
+       
 
 
         public async Task<Invitations> CreateInvitation(InvitationRequest model)
