@@ -12,35 +12,16 @@ namespace Starter.Data
 {
     public class StarterDbContext : IdentityDbContext
     {
-       // private string _connectionString = "Server=DESKTOP-DIJESC4\\SQLEXPRESS01;Database=StarterDB_local;User Id=evaldas;Password=1234;MultipleActiveResultSets=true;";
-
         public StarterDbContext(DbContextOptions<StarterDbContext> options
             ) : base(options)
         {
           
         }
 
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder.UseSqlServer(_connectionString);
-        //    }
-        // }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-
-        //}
-
-        //  public virtual DbSet<Port> Port { get; set; }
-
         public virtual DbSet<Country> Country { get; set; }
-        //public virtual DbSet<TournamentType> TournamentType { get; set; }
+
         public virtual DbSet<FreeAgency> FreeAgency { get; set; }
+
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public virtual DbSet<Roles> Roles { get; set; }
@@ -60,9 +41,6 @@ namespace Starter.Data
         {
             builder.Entity<UserRoles>()
                 .HasKey(a => new { a.RoleId, a.UserId });
-
-        //    builder.Entity<Invitations>()
-        //       .HasKey(a => new { a.CaptainId, a.PlayerId });
         }
 
 

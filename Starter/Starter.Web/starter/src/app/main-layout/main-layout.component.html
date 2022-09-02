@@ -19,7 +19,6 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-
 <mat-sidenav-container>
     <mat-sidenav id="sidenav" #sidenav mode="side" [mode]="mobileQuery.matches ? 'side' : 'over'" [opened]="mobileQuery.matches">
 <mat-list>
@@ -48,10 +47,8 @@
     </mat-sidenav>
 <mat-sidenav-content class="page-wrapper">
     <div class="page-content">
-        <!-- <app-bread-crumbs></app-bread-crumbs> -->
 
-        <router-outlet></router-outlet>
-            
+        <router-outlet></router-outlet>   
     </div>
     
 </mat-sidenav-content>

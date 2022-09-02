@@ -2,9 +2,7 @@
 {
     public class IdStringModel
     {
-    
         public string Id { get; set; }
 
-     
     }
 }

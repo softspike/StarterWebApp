@@ -12,8 +12,6 @@ export class ExcelExportComponent implements OnDestroy {
   apiUrl: string;
   fileName: string;
 
-
-
   @Input('response')
   set setRequest(val:any){
     if (val){
@@ -35,12 +33,6 @@ export class ExcelExportComponent implements OnDestroy {
     }
   }
 
-  
-  // @Input('response') response;
-  // @Input('api-url') apiUrl;
-  // @Input('file-name') fileName;
-
-
   constructor(private excelExportService: ExcelExportService){}
 
 
@@ -56,11 +48,4 @@ export class ExcelExportComponent implements OnDestroy {
     this.alive = false;
   }
 
-
-
-
-
-
-
-  
 }

@@ -6,7 +6,6 @@ import { FreeAgencyService } from 'src/app/services/free-agency.service';
 import { takeWhile, finalize } from 'rxjs/operators';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
-import { MatListItem } from '@angular/material/list';
 import { FreeAgencyModel, ListItem } from 'src/app/models/models.model';
 import { FormHelperService } from 'src/app/services/helper.service';
 
@@ -33,13 +32,6 @@ selectedType = this.tournamentTypeSelector[0].value;
     public service: UserService,
     public helper: FormHelperService){
    
-  //   @Inject(MAT_DIALOG_DATA) public data: any) {
-     
-  //   if (data) {
-  //     this.id = data.model.id;
-
-  //   } else {
-  //     this.id = undefined;
      }
    
 
@@ -77,7 +69,6 @@ selectedType = this.tournamentTypeSelector[0].value;
     if (!this.editForm.valid) {
       return;
     }
-//this.mapModel();
 
 this.helper.setModel(this.model, this.editForm);
 
