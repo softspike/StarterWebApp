@@ -99,6 +99,7 @@ namespace Starter.Core.Services
         {
             var inv = await _context.Invitations.Include(a => a.Captain).Where(a => a.PlayerId == playerId)
                 .Where(a => !a.Rejeted)
+                .Where(a => a.CreatedDateTime < DateTime.Now.AddMinutes(5))
                 .ToListAsync();
             return inv;
         }
