@@ -29,6 +29,17 @@ export class FreeAgencyService {
     return this.http.post<FreeAgencyModel>(url, request);
   }
 
+  editUser(request: FreeAgencyModel): Observable<any> {
+    const url = `${this.apiUrl}/edit-user`;
+    return this.http.post<FreeAgencyModel>(url, request);
+  }
+
+  deleteUser(request: FreeAgencyModel): Observable<any> {
+    const url = `${this.apiUrl}/delete-user`;
+    return this.http.post<FreeAgencyModel>(url, request);
+  }
+
+
   getOpenInvitations(playerId: string): Observable<any> {
     const url = `${this.apiUrl}/get-invitations?playerId=${playerId}`;
     return this.http.get<any>(url);

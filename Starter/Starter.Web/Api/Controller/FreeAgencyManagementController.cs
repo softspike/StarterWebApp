@@ -6,6 +6,7 @@ using Starter.Core.Services;
 using Starter.Services;
 using System.IO;
 using Starter.Data.Entities;
+using Starter.Data;
 
 namespace Starter.Web.Api.Dynamic
 {
@@ -19,17 +20,21 @@ namespace Starter.Web.Api.Dynamic
 
         private readonly IExcelConvertService _excelConvertService;
 
+        private StarterDbContext _context;
+
 
         public FreeAgencyController(IFreeAgencyManagementService freeAgencyManagementService,
-            IExcelConvertService excelConvertService)
+            IExcelConvertService excelConvertService,
+            StarterDbContext context)
         {
 
             _freeAgencyManagementService = freeAgencyManagementService;
             _excelConvertService = excelConvertService;
+            _context = context;
         }
 
         [HttpGet("get")]
-        public async Task<Country> Get(int id)
+        public async Task<FreeAgencyModel> Get(int id)
         {
             var res = await _freeAgencyManagementService.Get(id);
             return res;
@@ -86,6 +91,23 @@ namespace Starter.Web.Api.Dynamic
             return Ok(res);
         }
 
+        [HttpPost("edit-user")]
+        public async Task<IActionResult> EditUserInvitation([FromBody] FreeAgencyModel request)
+        {
+            var res = await _freeAgencyManagementService.EditUser(request);
+            return Ok(res);
+        }
+
+        [HttpPost("delete-user")]
+        public async Task<IActionResult> DeleteUserInvitation([FromBody] FreeAgencyModel request)
+        {
+            var res = await _context.FreeAgency.FindAsync(request.Id);
+
+            _context.FreeAgency.Remove(res);
+            await _context.SaveChangesAsync();
+
+            return Ok(res);
+        }
 
 
     }
